@@ -61,8 +61,7 @@ class PlasmaClass:
                                         "volts_reqmax": 130,
                                         "volts_reqmin": 120,
                                         "volts_reqincr": 1,
-
-                                         },
+                                        },
                           IniFile.widgets: widget_defaults(select_widgets([self.builder.get_object("hal-btn-THC"),
                                                                           ], hal_only = True, output_only = True)),
                         }
@@ -89,7 +88,6 @@ class PlasmaClass:
         self.halpin_cor_vel = hal_glib.GPin(halcomp.newpin("cor-vel", hal.HAL_FLOAT, hal.HAL_OUT))
         self.halpin_vel_tol = hal_glib.GPin(halcomp.newpin("vel-tol", hal.HAL_FLOAT, hal.HAL_OUT))
 
-
         self.halcomp.newpin("volts-requested", hal.HAL_FLOAT, hal.HAL_OUT)
         self.halcomp["volts-requested"] = self.volts_reqval
         self.halcomp.newpin("volts", hal.HAL_FLOAT, hal.HAL_IN)
@@ -98,8 +96,14 @@ class PlasmaClass:
         self.halcomp['feed-direct-val'] = self.feed_directval
         self.feed_direct_plus = hal_glib.GPin(halcomp.newpin('feed-direct-plus', hal.HAL_BIT, hal.HAL_IN))
         self.feed_direct_minus = hal_glib.GPin(halcomp.newpin('feed-direct-minus', hal.HAL_BIT, hal.HAL_IN))
-        self.feed_direct_plus.connect("value-changed", self.feed_direction_plus_mode)
-        self.feed_direct_minus.connect("value-changed", self.feed_direction_minus_mode)
+        self.feed_direct_plus.connect("value-changed", self.feed_direction_change, 1)
+        self.feed_direct_minus.connect("value-changed", self.feed_direction_change, -1)
+
+        self.volts_plus = hal_glib.GPin(halcomp.newpin('volts-plus', hal.HAL_BIT, hal.HAL_IN))
+        self.volts_minus = hal_glib.GPin(halcomp.newpin('volts-minus', hal.HAL_BIT, hal.HAL_IN))
+        self.volts_plus.connect('value-changed', self.volts_req_change, 1)
+        self.volts_minus.connect('value-changed', self.volts_req_change, -1)
+
 
 # get all widgets and connect them
         self.lbl_pierce_hght = self.builder.get_object("lbl_pierce_hght")
@@ -117,22 +121,20 @@ class PlasmaClass:
         self.lbl_volts.set_label("%.0f" % (self.halcomp["volts"]))
         self.lbl_volts_requested = self.builder.get_object("lbl_volts_requested")
         self.lbl_volts_requested.set_label("%.0f" % (self.volts_reqval))
+
+        self.lbl_print = self.builder.get_object('lbl_print')
+
         self.btn_feed_plus = self.builder.get_object("btn_feed_plus")
         self.btn_feed_minus = self.builder.get_object("btn_feed_minus")
         self.btn_feed_plus.set_sensitive(False)
         self.btn_feed_minus.set_sensitive(True)
-        self.btn_feed_plus.connect("pressed", self.feed_direction_mode_from_gui, 1)
-        self.btn_feed_minus.connect("pressed", self.feed_direction_mode_from_gui, -1)
+        self.btn_feed_plus.connect("pressed", self.feed_direction_change, 1)
+        self.btn_feed_minus.connect("pressed", self.feed_direction_change, -1)
 
         self.btn_volts_req_plus = self.builder.get_object("btn_volts_req_plus")
         self.btn_volts_req_minus = self.builder.get_object("btn_volts_req_minus")
         self.btn_volts_req_plus.connect("pressed", self.volts_req_change, 1)
         self.btn_volts_req_minus.connect("pressed", self.volts_req_change, -1)
-
-
-
-        self.btn_save_changes = self.builder.get_object("btn_save_changes")
-        self.btn_save_changes.connect("pressed", self.save_changed_states)
 
 # pierce_hght buttons
         self.btn_pierce_hght_plus = self.builder.get_object("btn_pierce_hght_plus")
@@ -251,6 +253,7 @@ class PlasmaClass:
         self.adj_vel_tol.lower = self.vel_tolmin
         self.adj_vel_tol.set_value(self.vel_tolval)
 
+
     def volts_req_change(self, widget, value):
         if value == 1:
             if self.halcomp["volts-requested"] == self.volts_reqmax:
@@ -273,30 +276,15 @@ class PlasmaClass:
             self.btn_volts_req_plus.set_sensitive(True)
             self.btn_volts_req_minus.set_sensitive(True)
 
-    def save_changed_states(self, widget, value):
-        self.ini.save_state()
 
-    def feed_direction_mode_from_gui(self, widget, value):
+    def feed_direction_change(self, widget, value):
+        # self.lbl_print.set_property('label', widget.get())
         if value == 1:
-            self.feed_direction_change('fwd')
-        elif value == -1:
-            self.feed_direction_change('bwd')
-
-    def feed_direction_plus_mode(self, pin, userdata=None):
-        if pin.get() == True:
-            self.feed_direction_change('fwd')
-
-    def feed_direction_minus_mode(self, pin, userdata=None):
-        if pin.get() == True:
-            self.feed_direction_change('bwd')
-
-    def feed_direction_change(self, direction):
-        if direction == 'fwd':
             if self.halcomp['feed-direct-val'] == self.feed_directmax:
                 self.halcomp['feed-direct-val'] = 1
             elif self.halcomp['feed-direct-val'] != self.feed_directmax:
                 self.halcomp['feed-direct-val'] += self.feed_directincr
-        if direction == 'bwd':
+        if value == -1:
             if self.halcomp['feed-direct-val'] == self.feed_directmin:
                 self.halcomp['feed-direct-val'] = self.feed_directmin
             elif self.halcomp['feed-direct-val'] != self.feed_directmin:
@@ -313,6 +301,8 @@ class PlasmaClass:
             self.btn_feed_plus.set_sensitive(True)
             self.btn_feed_minus.set_sensitive(False)
             self.lbl_feed_dir.set_property('label', 'BWD')
+
+
 
     def btn_pierce_hght_pressed(self, widget, dir):
         increment = self.pierce_hghtincr * dir
@@ -359,9 +349,6 @@ class PlasmaClass:
         self.vel_tolval = self.adj_vel_tol.get_value() + increment
         self.adj_vel_tol.set_value(self.vel_tolval)
 
-    def plasma_mode(self, widget, data = None):
-        if self.halpin_plasma == (False):
-            self.lbl_cutmode = 'Plasma mode'
 
     def adj_pierce_hght_changed(self, widget, data=None):
         if widget.get_value() >= widget.upper:

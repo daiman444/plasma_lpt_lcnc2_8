@@ -66,9 +66,6 @@
         <property name="can_focus">False</property>
         <property name="n_rows">7</property>
         <child>
-          <placeholder/>
-        </child>
-        <child>
           <object class="GtkFrame" id="frame1">
             <property name="height_request">80</property>
             <property name="visible">True</property>
@@ -781,6 +778,18 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="n_rows">10</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
                     <child>
                       <placeholder/>
                     </child>
@@ -1782,6 +1791,21 @@
                                           <placeholder/>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="HAL_Label" id="hal_label8">
                                             <property name="visible">True</property>
                                             <property name="can_focus">False</property>
@@ -2321,6 +2345,9 @@
                                           </packing>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="GtkButton" id="btn_hall_value_plus">
                                             <property name="label" translatable="yes">+</property>
                                             <property name="width_request">25</property>
@@ -2337,6 +2364,9 @@
                                           </packing>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="GtkButton" id="btn_hall_value_minus">
                                             <property name="label" translatable="yes">-</property>
                                             <property name="width_request">25</property>
@@ -2351,6 +2381,9 @@
                                             <property name="top_attach">5</property>
                                             <property name="bottom_attach">6</property>
                                           </packing>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
                                         </child>
                                       </object>
                                     </child>
@@ -2411,6 +2444,17 @@
             <property name="top_attach">6</property>
             <property name="bottom_attach">7</property>
             <property name="y_options"/>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="lbl_print">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">label</property>
+          </object>
+          <packing>
+            <property name="top_attach">4</property>
+            <property name="bottom_attach">5</property>
           </packing>
         </child>
       </object>
