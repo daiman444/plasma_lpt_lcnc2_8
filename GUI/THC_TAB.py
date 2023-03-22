@@ -255,12 +255,18 @@ class PlasmaClass:
 
 
     def volts_req_change(self, widget, value):
-        if value == 1:
+        if isinstance(widget, hal_glib.GPin):
+            if widget.get() is True:
+                direction = value
+        if isinstance(widget, gtk.Button):
+            direction = value
+        self.lbl_print.set_property('label', type(widget))
+        if direction == 1:
             if self.halcomp["volts-requested"] == self.volts_reqmax:
                 self.halcomp["volts-requested"] = self.volts_reqmax
             else:
                 self.halcomp["volts-requested"] += self.volts_reqincr
-        if value == -1:
+        if direction == -1:
             if self.halcomp["volts-requested"] == self.volts_reqmin:
                 self.halcomp["volts-requested"] = self.volts_reqmin
             else:
@@ -278,13 +284,19 @@ class PlasmaClass:
 
 
     def feed_direction_change(self, widget, value):
-        # self.lbl_print.set_property('label', widget.get())
-        if value == 1:
+        if isinstance(widget, hal_glib.GPin):
+            if widget.get() is True:
+                direction = value
+        if isinstance(widget, gtk.Button):
+            direction = value
+        self.lbl_print.set_property('label', type(widget))
+
+        if direction == 1:
             if self.halcomp['feed-direct-val'] == self.feed_directmax:
                 self.halcomp['feed-direct-val'] = 1
             elif self.halcomp['feed-direct-val'] != self.feed_directmax:
                 self.halcomp['feed-direct-val'] += self.feed_directincr
-        if value == -1:
+        if direction == -1:
             if self.halcomp['feed-direct-val'] == self.feed_directmin:
                 self.halcomp['feed-direct-val'] = self.feed_directmin
             elif self.halcomp['feed-direct-val'] != self.feed_directmin:
