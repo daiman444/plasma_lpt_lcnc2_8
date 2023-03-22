@@ -1,0 +1,7 @@
+O<go90> SUB
+G90
+G0 X[#<_hal[gladevcp.hal_spn_btn_xg90-s]>] Y[#<_hal[gladevcp.hal_spn_btn_yg90-s]>]
+
+O<go90> ENDSUB
+
+M2

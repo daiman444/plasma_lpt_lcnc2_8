@@ -1,0 +1,72 @@
+#maximize window
+#root_window.attributes("-zoomed",1)
+commands.set_view_z2()
+
+root_window.tk.call('pack','forget','.pane.top.tabs.fmanual.spindlef.ccw')
+#root_window.tk.call('pack','forget','.pane.top.tabs.fmanual.spindlef.cw')
+
+root_window.unbind("a")
+root_window.unbind("z")
+root_window.unbind("s")
+root_window.unbind("x")
+root_window.unbind("y")
+root_window.unbind("t")
+root_window.unbind("d")
+root_window.unbind("c")
+
+root_window.bind("t", commands.task_pause)
+root_window.bind("y", commands.task_resume)
+root_window.bind("u", lambda event: jogspeed_continuous())
+
+
+comp_ud = hal.component("hotkeys") 
+comp_ud.newpin("ohc_up", hal.HAL_BIT, hal.HAL_OUT)
+comp_ud.newpin("ohc_down", hal.HAL_BIT, hal.HAL_OUT)
+comp_ud.newpin("ohc_torch", hal.HAL_BIT, hal.HAL_OUT)
+comp_ud.newpin("feed_plus", hal.HAL_BIT, hal.HAL_OUT)
+comp_ud.newpin("feed_minus", hal.HAL_BIT, hal.HAL_OUT)
+comp_ud.newpin("volts_plus", hal.HAL_BIT, hal.HAL_OUT)
+comp_ud.newpin("volts_minus", hal.HAL_BIT, hal.HAL_OUT)
+
+
+
+comp_ud.ready()
+
+torch = 1
+
+class UdCommands(nf.TclCommands):
+    global torch
+    
+    def ohc_keypress(event):
+        global torch
+        if event.char == 'a':
+            comp_ud["ohc_up"] = 1
+        if event.char == 'z':
+            comp_ud["ohc_down"] = 1
+        if event.char == 's':
+            comp_ud["feed_plus"] = 1
+        if event.char == 'x':
+            comp_ud["feed_minus"] = 1
+        if event.char == "d":
+            comp_ud["volts_plus"] = 1
+        if event.char == "c":
+            comp_ud["volts_minus"] = 1
+
+        if event.char == 'q':
+            comp_ud["ohc_torch"] = torch
+            torch *= -1
+            torch += 1
+
+    def ohc_keyrelease(event):
+        comp_ud["ohc_up"] = 0
+        comp_ud["ohc_down"] = 0
+        comp_ud["feed_plus"] = 0
+        comp_ud["feed_minus"] = 0
+        comp_ud["volts_plus"] = 0
+        comp_ud["volts_minus"] = 0
+
+udcommands = UdCommands(root_window)
+
+root_window.bind('<KeyPress>', udcommands.ohc_keypress)
+root_window.bind('<KeyRelease>', udcommands.ohc_keyrelease)
+

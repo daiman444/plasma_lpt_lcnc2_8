@@ -1,0 +1,36 @@
+component thc2 "Height Control Up/Down Input";
+
+license "GPLv2 or greater";
+
+option singleton yes;
+
+pin in float encoder_vel        "Connect to hm2_7i92.0.encoder.00.velocity";
+pin in float volts_requested    "Tip Volts current_vel >= min_velocity requested";
+pin in float hall_sensor        "hall sensor volage";
+pin in float hall_sens_set      "hall sensor volage setup";
+
+pin out bit arc_ok_status "Arc OK status";
+pin out bit thcu "THC up";
+pin out bit thcd "THC down";
+
+pin out float volts "The Calculated Volts";
+
+//param rw float hall_sens_set "hall sensor volage setup";
+
+function _;
+
+;;
+
+FUNCTION(_) {
+    volts = encoder_vel * 0.07;
+    if (hall_sensor > hall_sens_set){arc_ok_status = 1;}
+    else {arc_ok_status = 0;}
+
+    if (volts < volts_requested){thcu = 1;}
+    else {thcu = 0;}
+
+    if (volts > volts_requested){thcd = 1;}
+    else {thcd = 0;}
+
+}
+

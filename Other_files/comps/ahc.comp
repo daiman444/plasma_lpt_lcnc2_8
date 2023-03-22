@@ -1,0 +1,132 @@
+component ahc "Automatical Height Control Up/Down Input";
+
+description 
+"""
+
+""";
+ 
+author "ddd";
+
+license "GPLv2 or greater";
+
+option singleton yes;
+
+// Input Pins
+pin in bit 		plasma "Enable plasma mode";
+pin in bit 		oxygen "Enable oxygen mode";
+pin in bit 		torch_up "Connect to an input pin";
+pin in bit 		torch_down "Connect to input pin";
+pin in float 	current_vel "Connect to motion.current-vel";
+pin in float 	requested_vel "Connect to motion.requested-vel";
+pin in bit 		torch_on "Connect to spindle.N.on";
+pin in bit 		arc_ok "Arc Ok from Plasma Torch";
+pin in bit 		enable "Enable the THC, if not enabled Z position is passed through";
+pin in float 	z_pos_in "Z Motor Position Command in from axis.n.motor-pos-cmd";
+
+pin in float 	velocity_tol "The deviation percent from planned velocity";
+pin in float 	correction_vel "The Velocity to move Z to correct";
+
+pin in bit		oxtorch_up 		"Oxygen up";
+pin in bit 		oxtorch_down	"Oxygen down";
+pin in bit		oxtorch_on		"Oxygen torch on";
+
+
+// Output Pins
+pin out float 	z_pos_out "Z Motor Position Command Out";
+pin out float 	z_fb_out "Z Position Feedback to Axis";
+pin out float 	cur_offset "The Current Offset";
+pin out bit 	vel_status "When the THC thinks we are at requested speed";
+pin out bit 	removing_offset "Pin for testing";
+
+// Parameters
+//param rw float velocity_tol "The deviation percent from planned velocity";
+//param rw float correction_vel "The Velocity to move Z to correct";
+
+// Global Variables
+variable float offset;
+variable float last_z_in;
+
+function _;
+
+;;
+
+#include "rtapi_math.h"
+
+FUNCTION(_) {
+if(plasma && !oxygen){
+    if(enable){
+        float min_velocity = requested_vel -(requested_vel*(velocity_tol*0.01));
+        if(current_vel > 0 && current_vel >= min_velocity){
+			vel_status = 1;
+		}
+		else {
+			vel_status =0;
+		}
+        
+        if(torch_on && arc_ok && vel_status){ // allow correction
+            if(torch_down){
+                offset -= correction_vel/10000;
+            }
+            if(torch_up){
+                offset += correction_vel/10000;
+            }    
+            last_z_in = 0;
+        }
+
+        z_pos_out = z_pos_in + offset;
+        z_fb_out = z_pos_in; // keep axis motor position fb from being confused
+    }
+    if(!enable){
+        z_pos_out = z_pos_in + offset;
+        z_fb_out = z_pos_in; // keep axis motor position fb from being confused
+    }
+}
+if(!plasma && oxygen){
+	if(enable){
+		float min_velocity = requested_vel -(requested_vel*(velocity_tol*0.01));
+		if(enable && torch_on){
+			vel_status = 1;
+		}
+		else {
+			vel_status =0;
+		}
+		if(torch_on){ // allow correction
+			if(oxtorch_down){
+				offset -= correction_vel/10000;
+			}
+			if(oxtorch_up){
+				offset += correction_vel/10000;
+			}    
+		last_z_in = 0;
+		}
+		if(!torch_on){ // remove any offset
+			float z_diff;
+			z_diff = z_pos_in - last_z_in;
+				if(z_diff > 0 && offset != 0){ // torch is moving up
+					removing_offset = 1;
+					if(offset > 0){ // positive offset
+						if(offset > z_diff){ // remove some
+							offset -= z_diff;
+						}
+						else {offset = 0;}
+					}
+				//if(offset < 0){ // negative offset
+					//if(offset < z_diff){ // remove some
+						//offset += z_diff;
+					//}
+				//else {offset = 0;}
+				//}
+				}
+            }
+            else {removing_offset = 0;}
+            last_z_in = z_pos_in;
+		}
+        z_pos_out = z_pos_in + offset;
+        z_fb_out = z_pos_in; // keep axis motor position fb from being confused
+    }
+    if(!enable){
+        z_pos_out = z_pos_in + offset;
+        z_fb_out = z_pos_in; // keep axis motor position fb from being confused
+        
+    }
+}

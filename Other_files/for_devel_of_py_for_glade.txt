@@ -1,0 +1,86 @@
+#!/usr/bin/env python
+# -*- coding:UTF-8 -*-
+"""
+    This file will control some options of the gmoccapy plasma screen
+    and demonstrats at the same time the possibilities you have introducing
+    your own handler files and functions to that screen, showing the
+    possibilities to modify the layout and behavior
+
+    Copyright 2013 Norbert Schechner
+    nieson@web.de
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation; either version 2 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+
+"""
+
+import hal_glib                           # needed to make our own hal pins
+import hal                                # needed to make our own hal pins
+from gladevcp.persistence import IniFile  # we use this one to save the states of the widgets on shut down and restart
+from gladevcp.persistence import widget_defaults
+from gladevcp.persistence import select_widgets
+import gtk
+from gmoccapy import preferences
+from gmoccapy import getiniinfo
+
+class PlasmaClass:
+
+    def __init__(self, halcomp, builder, useropts):
+        self.builder = builder
+        self.halcomp = halcomp
+        self.defaults = { IniFile.vars : { "XXXval"           : Z.0 ,
+                                           "XXXmax"           : Z.0 ,
+                                           "XXXmin"           : Z.0  ,
+                                           "XXXincr"          : Z.0  ,
+
+
+
+
+	self.halpin_XXX = hal_glib.GPin(halcomp.newpin("YYY", hal.HAL_FLOAT, hal.HAL_OUT))
+
+	self.lbl_XXX = self.builder.get_object("lbl_XXX")
+
+#XXX buttons
+	self.btn_XXX_plus = self.builder.get_object("btn_XXX_plus")
+        self.btn_XXX_plus.connect("pressed", self.btn_XXX_pressed, 1)
+
+        self.btn_XXX_minus = self.builder.get_object("btn_XXX_minus")
+        self.btn_XXX_minus.connect("pressed", self.btn_XXX_pressed, -1)
+
+#adj_XXX
+	self.adj_XXX = self.builder.get_object("adj_XXX")
+        self.adj_XXX.connect("value_changed", self.adj_XXX_changed)
+
+        self.adj_XXX.upper = self.XXXmax
+        self.adj_XXX.lower = self.XXXmin
+        self.adj_XXX.set_value(self.XXXval)
+
+    def btn_XXX_pressed(self, widget, dir):
+        increment = self.XXXincr * dir
+        self.XXXval = self.adj_XXX.get_value() + increment
+        self.adj_XXX.set_value(self.XXXval)
+
+    def adj_XXX_changed(self, widget, data = None):
+        if widget.get_value() >= widget.upper:
+            self.btn_XXX_plus.set_sensitive(False)
+        elif widget.get_value() <= widget.lower:
+            self.btn_XXX_minus.set_sensitive(False)
+        else:
+            self.btn_XXX_plus.set_sensitive(True)
+            self.btn_XXX_minus.set_sensitive(True)
+        self.halcomp["YYY"] = widget.get_value()
+        self.lbl_XXX.set_label("%.1f" % (widget.get_value()))
+
+def get_handlers(halcomp, builder, useropts):
+    return[PlasmaClass(halcomp, builder, useropts)]

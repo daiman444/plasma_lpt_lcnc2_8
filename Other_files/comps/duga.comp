@@ -1,0 +1,34 @@
+component duga "plasma control ";
+/* sudo halcompile --install duga.comp */
+author "Kartashov D";
+
+license "GPLv2 or greater";
+
+option singleton yes;
+
+pin in  bit duga_on  ;
+pin in  bit duga_off ;
+
+pin in  bit spindle_on ;
+pin in  bit spindle_off ;
+
+pin in  bit is_pause  ;
+pin in  bit arc_ok  ;
+
+pin out bit duga_status   ;
+
+
+function _;
+
+;;
+
+#include "rtapi_math.h"
+
+FUNCTION(_) {  
+    if(duga_on || spindle_on) {duga_status = 1;} 
+    if(duga_off|| spindle_off){duga_status = 0;}                   
+    }     
+
+
+
+

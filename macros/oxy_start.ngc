@@ -1,0 +1,14 @@
+O<oxy_start> SUB
+#<1> = #<_hal[THCTAB.z-speed]>
+
+(G91)
+(G38.3 Z-150 F500)
+(G92 Z0)
+(G0 Z4)
+M03 S100
+M64 P00
+M66 P9 L3 Q300
+G90
+O<oxy_start> ENDSUB
+
+M2

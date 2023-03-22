@@ -1,0 +1,10 @@
+O<setcoord> SUB
+#<1> = #<_hal[THCTAB.hal_spbtn_set_coord_x-f]>
+#<2> = #<_hal[THCTAB.hal_spbtn_set_coord_y-f]>
+
+
+G92 X[#<1>]Y[#<2>]
+
+O<setcoord> ENDSUB
+
+M2

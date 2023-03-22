@@ -1,0 +1,38 @@
+### клонируем репозиторий с github в нужную папку:
+
+cd /home/ddd/linuxcnc/configs/
+git clone https://github.com/daiman444/plasma_lcnc.git PlasmaCUT.kz
+
+### клонируем только нужную ветку репозитория в нужную папку:
+
+cd /home/ddd/linuxcnc/configs/
+git clone --branch=branchname https://github.com/daiman444/plasma_lcnc.git PlasmaCUT.kz
+проходим в папку с файлмаи проекта:
+
+cd /путь/к/проекту/
+
+инициализируем файлы:
+
+git init
+
+создаем если нужно ветку проекта:
+
+git checkout -b имяветкипроекта
+
+добавляем файлы
+
+git add .
+
+комментруем изменения:
+
+git commit -m "комментарий к ветке проекта"
+
+если проект не склонирован с github то подключаемся к удаленному репозиторию:
+
+git remote add origin https://github.com/username/projectname.git
+
+заливаем ветку:
+
+git push origin имяветки
+
+

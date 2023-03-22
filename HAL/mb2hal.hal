@@ -1,0 +1,8 @@
+loadusr -W mb2hal config=mb2hal.ini
+
+net spindle-enable          spindle.0.on				mb2hal.plasma_on.00 
+net thc2-encoder-vel        mb2hal.freq.00.float		thc2.encoder-vel
+
+net hall_sensor				mb2hal.freq.01.float		thc2.hall_sensor
+setp hall_sens_setup 100
+net deb-thc2-arc-ok-out	mb2hal.plasma_on.01	ahc.arc-ok              motion.digital-in-00

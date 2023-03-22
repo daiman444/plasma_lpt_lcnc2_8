@@ -1,0 +1,43 @@
+(info: Полосы вдоль X)
+
+;
+;
+
+o<strip_x> sub
+
+#<variable1>        = #1 (=0 	переменная)
+#<numb_of_lanes>    = #2 (=5 	коливество полос)
+#<width>            = #3 (=250 	ширина полосы)
+#<cut_width>        = #4 (=3 	ширина реза)
+#<variable2>        = #5 (=0.5 	переменная)
+#<lenght>           = #6 (=1500 длина полосы)
+#<cutspeed>         = #7 (=1900 скорость реза)
+
+G64 P0.1
+G21
+G91 G40
+G00X0Y[#<width>+#<cut_width>*#<variable2>]
+
+o100 while [#<variable1> LT #<numb_of_lanes>]
+
+	M23S10
+	G91
+	G04 P0.1
+	F[#<cutspeed>]
+	M64 P00
+	G64P00
+	G01X-[#<lenght>]
+	M65 P00
+	M25
+	G91
+	G00Y[#<width>+#<cut_width>]
+	#<lenght> = [#<lenght>*-1]
+	#<variable1> = [#<variable1>+1]
+
+o100 endwhile
+
+m2
+
+o<strip_x> endsub
+
+

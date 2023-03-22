@@ -1,0 +1,22 @@
+O<plasma_start> SUB
+#<1> = #<_hal[THCTAB.z-speed]>
+#<2> = #<_hal[THCTAB.prc-hght]>
+#<3> = #<_hal[THCTAB.jump]>
+#<4> = #<_hal[THCTAB.cut-hght]>
+#<5> = #<_hal[THCTAB.prc-del]>
+
+
+G91
+G38.3 Z-150 F[#<1>]
+G38.5 Z10 F[#<1>]
+G92 Z0
+G0 Z[#<2>]
+M03 S100
+M66 P0 L3 Q20
+G0 Z[#<3>]
+G04 P[#<5>]
+G90
+G0 Z[#<4>]
+O<plasma_start> ENDSUB
+
+M2

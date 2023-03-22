@@ -1,0 +1,8 @@
+O<go_to_end> SUB
+
+G53 G00 Z0
+G53 X#<_ini[JOINT_0]MIN_LIMIT> Y#<_ini[JOINT_1]MAX_LIMIT>
+
+O<go_to_end> ENDSUB
+
+M2

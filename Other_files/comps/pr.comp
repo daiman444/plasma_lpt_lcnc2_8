@@ -1,0 +1,33 @@
+component pr "Probe mode for plasma or oxygen cuters";
+
+description 
+"""
+vent. for plasma or oxygen cuters
+
+""";
+ 
+license "GPLv2 or greater";
+
+option singleton yes;
+
+// Input Pins
+
+pin in bit pobe_mode "turning of the probe mode";
+pin in bit pobe_sens "Probe sensor";
+
+// Output Pins
+
+pin out bit probe_on "To motion.probe-input";
+
+function _;
+
+;;
+
+#include "rtapi_math.h"
+
+FUNCTION(_) {
+
+	if (pobe_mode && pobe_sens){probe_on = 1;}
+	else {probe_on = 0;}
+
+}

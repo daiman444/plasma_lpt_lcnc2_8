@@ -1,0 +1,13 @@
+O<plasma_stop> SUB
+#<1> = #<_hal[THCTAB.safe_z-f]>
+
+
+G91
+M05
+G04  P10
+F300
+G0 Z[#<1>]
+G90
+O<plasma_stop> ENDSUB
+
+M2

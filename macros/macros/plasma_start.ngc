@@ -1,0 +1,21 @@
+O<plasma_start> SUB
+#<1> = #<_hal[gladevcp.pr_speed-f]>
+#<2> = #<_hal[gladevcp.pierce_height-f]>
+#<3> = #<_hal[gladevcp.jump_height-f]>
+#<4> = #<_hal[gladevcp.cut_height-f]>
+#<5> = #<_hal[gladevcp.pierce_delay-f]>
+
+
+G91
+G38.3 Z-150 F[#<1>]
+G92 Z0
+G0 Z[#<2>]
+M03 S100
+M66 P0 L3 Q20
+G0 Z[#<3>]
+G90
+G0 Z[#<4>]
+G04 P[#<5>]
+O<plasma_start> ENDSUB
+
+M2

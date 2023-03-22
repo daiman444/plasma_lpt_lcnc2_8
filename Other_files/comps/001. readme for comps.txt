@@ -1,0 +1,16 @@
+устанавливаем пакет dev для linuxcnc через менеджер пакетов либо через терминал:
+
+sudo apt-get install linuxcnc-dev
+
+создаем компонент с расширением файл .comp
+помещаем файл компонента в папку пользвоателя (напримет /home/ddd/)
+
+запускаем терминал и устанавливаем компонент:
+
+cd /home/ddd/
+sudo halcompile --install compname.comp
+
+если при компиляции компонента выдается ошибка :"sh: 1: make: not found" 
+то необходмио установить следующий пакет:
+
+sudo apt-get install build-essential
