@@ -1,6 +1,8 @@
 #!/usr/bin/env python2
 # -*- coding:UTF-8 -*-
 
+import sys
+import os
 import hal_glib  # needed to make our own hal pins
 import hal  # needed to make our own hal pins
 import gtk
@@ -12,11 +14,17 @@ from gladevcp.persistence import select_widgets
 from gmoccapy import preferences
 from gmoccapy import getiniinfo
 
+STATUS = linuxcnc.stat()
+COMMANDS = linuxcnc.command()
+INIPATH = os.environ.get('INI_FILE_NAME', '/dev/null')
+
 
 class PlasmaClass:
     def __init__(self, halcomp, builder, useropts):
+        self.lcnc = linuxcnc
         self.command = linuxcnc.command()
         self.stat = linuxcnc.stat()
+        self.inifile = self.lcnc.ini(INIPATH)
         self.builder = builder
         self.halcomp = halcomp
         self.defaults = {IniFile.vars: {"pierce_hghtval": 7.0,
@@ -79,22 +87,47 @@ class PlasmaClass:
         self.ini = IniFile(self.ini_filename, self.defaults, self.builder)
         self.ini.restore_state(self)
 
-        # labels
         self.lbl_print = self.builder.get_object('lbl_print')
+
+
+        # labels
 
         self.buttons = ['frame2', 'frame6', 'frame3', 'scrolledwindow1', ]
 
+        # buttons
+        self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
+        self.builder.get_object('zero-xyz').connect('pressed', self.go_to_zero, 'G92 X0 Y0 Z0')
+        self.builder.get_object('zero-x').connect('pressed', self.go_to_zero, 'G92 X0')
+        self.builder.get_object('zero-y').connect('pressed', self.go_to_zero, 'G92 Y0')
+        self.builder.get_object('zero-z').connect('pressed', self.go_to_zero, 'G92 Z0')
+        self.builder.get_object('gotoend').connect('pressed', self.gotoend)
+        self.builder.get_object('set_coord').connect('pressed', self.setcoord)
 
-    def update_status(self):
-        self.stat.poll()
-        status = self.stat.estop
-        self.lbl_print.set_property('label', str(status))
+    def go_to_zero(self, w, d=None):
+        self.command.mode(linuxcnc.MODE_MDI)
+        self.command.mdi(d)
+        self.command.wait_complete()
+        self.command.mode(linuxcnc.MODE_MANUAL)
+
+    def gotoend(self, w, d=None):
+        x_limit = self.inifile.find('AXIS_X', 'MIN_LIMIT')
+        y_limit = self.inifile.find('AXIS_Y', 'MAX_LIMIT')
+        self.command.mode(linuxcnc.MODE_MDI)
+        self.command.mdi('G53 G00 Z0 ')
+        self.command.wait_complete()
+        self.command.mdi('G53 X{0} Y{1}'.format(x_limit, y_limit))
+        self.command.wait_complete()
+        self.command.mode(linuxcnc.MODE_MANUAL)
 
 
+    def setcoord(self, w, d=None):
+        x_coord = self.builder.get_object('txt_set_coord_x').get_text()
+        y_coord = self.builder.get_object('txt_set_coord_y').get_text()
+        self.command.mode(linuxcnc.MODE_MDI)
+        self.command.mdi('G92 X{0} Y{1}'.format(float(x_coord), float(y_coord)))
+        self.command.wait_complete()
+        self.command.mode(linuxcnc.MODE_MANUAL)
 
-    def widgets_sensetive(self, w_list, value):
-        for name in w_list:
-            self.builder.get_object(name).set_sensitive(value)
 
 
 def get_handlers(halcomp, builder, useropts):
