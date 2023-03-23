@@ -361,3 +361,64 @@ class PlasmaClass:
 
 def get_handlers(halcomp, builder, useropts):
     return[PlasmaClass(halcomp, builder, useropts)]
+
+
+"""    def volts_req_change(self, widget, value):
+        if isinstance(widget, hal_glib.GPin):
+            if widget.get() is True:
+                direction = value
+        if isinstance(widget, gtk.Button):
+            direction = value
+        self.lbl_print.set_property('label', type(widget))
+        if direction == 1:
+            if self.halcomp["volts-requested"] == self.volts_reqmax:
+                self.halcomp["volts-requested"] = self.volts_reqmax
+            else:
+                self.halcomp["volts-requested"] += self.volts_reqincr
+        if direction == -1:
+            if self.halcomp["volts-requested"] == self.volts_reqmin:
+                self.halcomp["volts-requested"] = self.volts_reqmin
+            else:
+                self.halcomp["volts-requested"] -= self.volts_reqincr
+        self.lbl_volts_requested.set_label("%.0f" % (self.halcomp["volts-requested"]))
+        if self.halcomp["volts-requested"] == self.volts_reqmax:
+            self.btn_volts_req_plus.set_sensitive(False)
+            self.btn_volts_req_minus.set_sensitive(True)
+        elif self.halcomp["volts-requested"] == self.volts_reqmin:
+            self.btn_volts_req_plus.set_sensitive(True)
+            self.btn_volts_req_minus.set_sensitive(False)
+        else:
+            self.btn_volts_req_plus.set_sensitive(True)
+            self.btn_volts_req_minus.set_sensitive(True)
+
+
+    def feed_direction_change(self, widget, value):
+        if isinstance(widget, hal_glib.GPin):
+            if widget.get() is True:
+                direction = value
+        if isinstance(widget, gtk.Button):
+            direction = value
+        self.lbl_print.set_property('label', type(widget))
+        if direction == 1:
+            if self.halcomp['feed-direct-val'] == self.feed_directmax:
+                self.halcomp['feed-direct-val'] = 1
+            elif self.halcomp['feed-direct-val'] != self.feed_directmax:
+                self.halcomp['feed-direct-val'] += self.feed_directincr
+        if direction == -1:
+            if self.halcomp['feed-direct-val'] == self.feed_directmin:
+                self.halcomp['feed-direct-val'] = self.feed_directmin
+            elif self.halcomp['feed-direct-val'] != self.feed_directmin:
+                self.halcomp['feed-direct-val'] -= self.feed_directincr
+        if self.halcomp['feed-direct-val'] == self.feed_directmax:
+            self.btn_feed_plus.set_sensitive(False)
+            self.btn_feed_minus.set_sensitive(True)
+            self.lbl_feed_dir.set_property('label', 'FWD')
+        if self.halcomp['feed-direct-val'] == 0:
+            self.btn_feed_plus.set_sensitive(True)
+            self.btn_feed_minus.set_sensitive(True)
+            self.lbl_feed_dir.set_property('label', 'Stop')
+        if self.halcomp['feed-direct-val'] == self.feed_directmin:
+            self.btn_feed_plus.set_sensitive(True)
+            self.btn_feed_minus.set_sensitive(False)
+            self.lbl_feed_dir.set_property('label', 'BWD')
+"""
