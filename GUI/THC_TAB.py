@@ -14,6 +14,7 @@ from gladevcp.persistence import select_widgets
 from gmoccapy import preferences
 from gmoccapy import getiniinfo
 
+GSTAT = hal_glib.GStat()
 STATUS = linuxcnc.stat()
 COMMANDS = linuxcnc.command()
 INIPATH = os.environ.get('INI_FILE_NAME', '/dev/null')
@@ -21,12 +22,14 @@ INIPATH = os.environ.get('INI_FILE_NAME', '/dev/null')
 
 class PlasmaClass:
     def __init__(self, halcomp, builder, useropts):
+        self.hglib = hal_glib
         self.lcnc = linuxcnc
         self.command = linuxcnc.command()
         self.stat = linuxcnc.stat()
         self.inifile = self.lcnc.ini(INIPATH)
         self.builder = builder
         self.halcomp = halcomp
+        GSTAT.connect('all-homed', lambda w: self.check_state('homed'))
         self.defaults = {IniFile.vars: {"pierce_hghtval": 7.0,
                                         "pierce_hghtmax": 15.0,
                                         "pierce_hghtmin": 1.0,
@@ -75,24 +78,31 @@ class PlasmaClass:
                          IniFile.widgets: widget_defaults(select_widgets([self.builder.get_object("hal-btn-THC")],
                                                                          hal_only=True, output_only=True)),
                          }
-
         get_ini_info = getiniinfo.GetIniInfo()
         prefs = preferences.preferences(get_ini_info.get_preference_file_path())
         theme_name = prefs.getpref("gtk_theme", "Follow System Theme", str)
         if theme_name == "Follow System Theme":
             theme_name = gtk.settings_get_default().get_property("gtk-theme-name")
         gtk.settings_get_default().set_string_property("gtk-theme-name", theme_name, "")
-
         self.ini_filename = __name__ + ".var"
         self.ini = IniFile(self.ini_filename, self.defaults, self.builder)
         self.ini.restore_state(self)
 
-        self.lbl_print = self.builder.get_object('lbl_print')
+        self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x', 'zero-y', 'zero-z', 'gotoend', 'set_coord',
+                                  'btn_feed_minus', 'btn_feed_plus']
 
+# TODO
+# нужно структурировать виджеты по их функционалу для распределения когда какие должны быть активны
+
+        for name in self.list_btns_set_coord:
+            self.builder.get_object(name).set_sensitive(False)
+
+        # pins in
+
+        # pins out
 
         # labels
-
-        self.buttons = ['frame2', 'frame6', 'frame3', 'scrolledwindow1', ]
+        self.lbl_print = self.builder.get_object('lbl_print')
 
         # buttons
         self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
@@ -102,6 +112,14 @@ class PlasmaClass:
         self.builder.get_object('zero-z').connect('pressed', self.go_to_zero, 'G92 Z0')
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
         self.builder.get_object('set_coord').connect('pressed', self.setcoord)
+
+    def check_state(self, state):
+        if state:
+            for name in self.list_btns_set_coord:
+                self.builder.get_object(name).set_sensitive(True)
+
+
+
 
     def go_to_zero(self, w, d=None):
         self.command.mode(linuxcnc.MODE_MDI)

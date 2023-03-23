@@ -98,13 +98,7 @@
       <object class="GtkTable" id="table1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="n_rows">10</property>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
+        <property name="n_rows">8</property>
         <child>
           <object class="GtkFrame" id="frame1">
             <property name="height_request">80</property>
@@ -676,31 +670,21 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="n_rows">2</property>
-                    <property name="n_columns">4</property>
+                    <property name="n_columns">2</property>
                     <child>
-                      <object class="GtkLabel" id="label7">
+                      <object class="GtkToggleButton" id="togglebutton1">
+                        <property name="label" translatable="yes">Plasma</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Плазма</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
                       </object>
                     </child>
                     <child>
-                      <object class="GtkLabel" id="label8">
+                      <object class="GtkToggleButton" id="togglebutton2">
+                        <property name="label" translatable="yes">Oxygen</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="label" translatable="yes">Кислород</property>
-                      </object>
-                      <packing>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="HAL_LED" id="hal_led_plasma">
-                        <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="blink_when_off">True</property>
-                        <property name="led_blink_rate">0</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
                       </object>
                       <packing>
                         <property name="left_attach">1</property>
@@ -708,69 +692,16 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="HAL_LED" id="hal_led_oxygen">
+                      <object class="GtkToggleButton" id="togglebutton3">
+                        <property name="label" translatable="yes">THC Control</property>
                         <property name="visible">True</property>
-                        <property name="can_focus">False</property>
-                        <property name="blink_when_off">True</property>
-                        <property name="led_blink_rate">0</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">True</property>
                       </object>
                       <packing>
-                        <property name="left_attach">1</property>
                         <property name="right_attach">2</property>
                         <property name="top_attach">1</property>
                         <property name="bottom_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="HAL_Button" id="hal_btn_oxygen_mode_off">
-                        <property name="label" translatable="yes">Выкл</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">3</property>
-                        <property name="right_attach">4</property>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="HAL_Button" id="hal_btn_oxygen_mode_on">
-                        <property name="label" translatable="yes">Вкл</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">2</property>
-                        <property name="right_attach">3</property>
-                        <property name="top_attach">1</property>
-                        <property name="bottom_attach">2</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="HAL_Button" id="hal_btn_plasma_mode_off">
-                        <property name="label" translatable="yes">Выкл</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">3</property>
-                        <property name="right_attach">4</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="HAL_Button" id="hal_btn_plasma_mode_on">
-                        <property name="label" translatable="yes">Вкл</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
-                      </object>
-                      <packing>
-                        <property name="left_attach">2</property>
-                        <property name="right_attach">3</property>
                       </packing>
                     </child>
                   </object>
@@ -808,6 +739,18 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="n_rows">10</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
                     <child>
                       <placeholder/>
                     </child>
@@ -1620,45 +1563,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
-                                  <object class="GtkHBox" id="hbox1">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <child>
-                                      <object class="HAL_Button" id="hal_btn_thcon">
-                                        <property name="label" translatable="yes">THC Влк</property>
-                                        <property name="width_request">90</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">True</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">0</property>
-                                      </packing>
-                                    </child>
-                                    <child>
-                                      <object class="HAL_Button" id="hal_btn_thcoff">
-                                        <property name="label" translatable="yes">THC Выкл</property>
-                                        <property name="width_request">90</property>
-                                        <property name="visible">True</property>
-                                        <property name="can_focus">True</property>
-                                        <property name="receives_default">True</property>
-                                        <property name="xalign">0.49000000953674316</property>
-                                        <property name="yalign">0.49000000953674316</property>
-                                      </object>
-                                      <packing>
-                                        <property name="expand">True</property>
-                                        <property name="fill">True</property>
-                                        <property name="position">1</property>
-                                      </packing>
-                                    </child>
-                                  </object>
-                                  <packing>
-                                    <property name="expand">True</property>
-                                    <property name="fill">True</property>
-                                    <property name="position">0</property>
-                                  </packing>
+                                  <placeholder/>
                                 </child>
                                 <child>
                                   <placeholder/>
@@ -1769,6 +1674,21 @@
                                         <property name="can_focus">False</property>
                                         <property name="n_rows">8</property>
                                         <property name="n_columns">4</property>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
                                         <child>
                                           <placeholder/>
                                         </child>
@@ -2438,6 +2358,9 @@
                                           <placeholder/>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="GtkButton" id="btn_hall_value_plus">
                                             <property name="label" translatable="yes">+</property>
                                             <property name="width_request">25</property>
@@ -2463,6 +2386,9 @@
                                           <placeholder/>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="GtkButton" id="btn_hall_value_minus">
                                             <property name="label" translatable="yes">-</property>
                                             <property name="width_request">25</property>
@@ -2477,6 +2403,9 @@
                                             <property name="top_attach">5</property>
                                             <property name="bottom_attach">6</property>
                                           </packing>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
                                         </child>
                                         <child>
                                           <placeholder/>
@@ -2531,8 +2460,8 @@
             </child>
           </object>
           <packing>
-            <property name="top_attach">8</property>
-            <property name="bottom_attach">9</property>
+            <property name="top_attach">6</property>
+            <property name="bottom_attach">7</property>
           </packing>
         </child>
         <child>
@@ -2543,10 +2472,13 @@
             <property name="receives_default">True</property>
           </object>
           <packing>
-            <property name="top_attach">9</property>
-            <property name="bottom_attach">10</property>
+            <property name="top_attach">7</property>
+            <property name="bottom_attach">8</property>
             <property name="y_options"/>
           </packing>
+        </child>
+        <child>
+          <placeholder/>
         </child>
         <child>
           <object class="GtkLabel" id="lbl_print">
@@ -2555,56 +2487,9 @@
             <property name="label" translatable="yes">label</property>
           </object>
           <packing>
-            <property name="top_attach">7</property>
-            <property name="bottom_attach">8</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkTable" id="table2">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="n_rows">3</property>
-            <property name="n_columns">2</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
             <property name="top_attach">4</property>
             <property name="bottom_attach">5</property>
+            <property name="y_options"/>
           </packing>
         </child>
       </object>
