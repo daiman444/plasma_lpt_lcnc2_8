@@ -5,6 +5,7 @@ import sys
 import os
 import hal_glib  # needed to make our own hal pins
 import hal  # needed to make our own hal pins
+import gobject
 import gtk
 import linuxcnc
 
@@ -29,7 +30,7 @@ class PlasmaClass:
         self.inifile = self.lcnc.ini(INIPATH)
         self.builder = builder
         self.halcomp = halcomp
-        GSTAT.connect('all-homed', lambda w: self.check_state('homed'))
+        GSTAT.connect('motion-mode-changed', self.check_state)
         self.defaults = {IniFile.vars: {"pierce_hghtval": 7.0,
                                         "pierce_hghtmax": 15.0,
                                         "pierce_hghtmin": 1.0,
@@ -89,10 +90,12 @@ class PlasmaClass:
         self.ini.restore_state(self)
 
         self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x', 'zero-y', 'zero-z', 'gotoend', 'set_coord',
-                                  'btn_feed_minus', 'btn_feed_plus']
+                                  'btn_feed_minus', 'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
 
 # TODO
 # нужно структурировать виджеты по их функционалу для распределения когда какие должны быть активны
+
+        #self.builder.get_object('lbl_print').set_label("123")
 
         for name in self.list_btns_set_coord:
             self.builder.get_object(name).set_sensitive(False)
@@ -102,7 +105,7 @@ class PlasmaClass:
         # pins out
 
         # labels
-        self.lbl_print = self.builder.get_object('lbl_print')
+
 
         # buttons
         self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
@@ -113,10 +116,8 @@ class PlasmaClass:
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
         self.builder.get_object('set_coord').connect('pressed', self.setcoord)
 
-    def check_state(self, state):
-        if state:
-            for name in self.list_btns_set_coord:
-                self.builder.get_object(name).set_sensitive(True)
+    def check_state(self, obj, data):
+        self.builder.get_object('lbl_print').set_label(str(data))
 
 
 
