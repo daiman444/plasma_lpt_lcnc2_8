@@ -30,7 +30,8 @@ class PlasmaClass:
         self.inifile = self.lcnc.ini(INIPATH)
         self.builder = builder
         self.halcomp = halcomp
-        GSTAT.connect('motion-mode-changed', self.check_state)
+        #GSTAT.connect('homed', lambda w: self.check_state('homed'))
+        #GSTAT.connect('motion-mode-changed', self.check_state)
         self.defaults = {IniFile.vars: {"pierce_hghtval": 7.0,
                                         "pierce_hghtmax": 15.0,
                                         "pierce_hghtmin": 1.0,
@@ -94,20 +95,14 @@ class PlasmaClass:
 
 # TODO
 # нужно структурировать виджеты по их функционалу для распределения когда какие должны быть активны
-
-        #self.builder.get_object('lbl_print').set_label("123")
-
-        for name in self.list_btns_set_coord:
-            self.builder.get_object(name).set_sensitive(False)
-
-        # pins in
+        #for name in self.list_btns_set_coord:
+        #    self.builder.get_object(name).set_sensitive(False)
 
         # pins out
 
         # labels
 
-
-        # buttons
+        # buttons reset coordinates
         self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
         self.builder.get_object('zero-xyz').connect('pressed', self.go_to_zero, 'G92 X0 Y0 Z0')
         self.builder.get_object('zero-x').connect('pressed', self.go_to_zero, 'G92 X0')
@@ -116,12 +111,36 @@ class PlasmaClass:
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
         self.builder.get_object('set_coord').connect('pressed', self.setcoord)
 
-    def check_state(self, obj, data):
+        # feed direction
+        self.pin_feed_dir_plus = hal_glib.GPin(halcomp.newpin('feed-dir-plus', hal.HAL_BIT, hal.HAL_IN))
+        self.pin_feed_dir_plus.connect('value-changed', self.feed_direction_change, 1)
+
+        self.pin_feed_dir_minus = hal_glib.GPin(halcomp.newpin('feed-dir-minus', hal.HAL_BIT, hal.HAL_IN))
+        self.pin_feed_dir_minus.connect('value-changed', self.feed_direction_change, -1)
+
+        self.pin_feed_dir = hal_glib.GPin(halcomp.newpin('feed-dir', hal.HAL_FLOAT, hal.HAL_OUT))
+        self.pin_feed_dir.value = 1
+
+        self.lbl_feed_dir = self.builder.get_object('lbl_feed_dir')
+        self.lbl_feed_dir.set_label('FWD')
+
+        self.btn_feed_dir_plus = builder.get_object('btn_feed_plus')
+        self.btn_feed_dir_minus = builder.get_object('btn_feed_minus')
+
+        self.btn_feed_dir_plus.connect('pressed', self.feed_direction_change, 1)
+        self.btn_feed_dir_minus.connect('pressed', self.feed_direction_change, -1)
+
+        self.btn_feed_dir_plus.set_sensitive(False)
+        self.btn_feed_dir_minus.set_sensitive(True)
+
+    def check_state(self, data):
+        pass
+        '''
+        if data == 'homed':
+            for i in self.list_btns_set_coord:
+                self.builder.get_object(i).set_sensitive(True)
         self.builder.get_object('lbl_print').set_label(str(data))
-
-
-
-
+'''
     def go_to_zero(self, w, d=None):
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi(d)
@@ -138,7 +157,6 @@ class PlasmaClass:
         self.command.wait_complete()
         self.command.mode(linuxcnc.MODE_MANUAL)
 
-
     def setcoord(self, w, d=None):
         x_coord = self.builder.get_object('txt_set_coord_x').get_text()
         y_coord = self.builder.get_object('txt_set_coord_y').get_text()
@@ -146,6 +164,25 @@ class PlasmaClass:
         self.command.mdi('G92 X{0} Y{1}'.format(float(x_coord), float(y_coord)))
         self.command.wait_complete()
         self.command.mode(linuxcnc.MODE_MANUAL)
+
+    def feed_direction_change(self, widget, value):
+        if isinstance(widget, hal_glib.GPin):
+            if widget.get() is True:
+                self.pin_feed_dir.value += self.feed_directincr * value
+        if isinstance(widget, gtk.Button):
+            self.pin_feed_dir.value += self.feed_directincr * value
+        if self.pin_feed_dir.value >= self.feed_directmax:
+            self.pin_feed_dir.value = self.feed_directmax
+            self.btn_feed_dir_plus.set_sensitive(False)
+            self.lbl_feed_dir.set_label('FWD')
+        elif self.pin_feed_dir.value <= self.feed_directmin:
+            self.pin_feed_dir.value = self.feed_directmin
+            self.btn_feed_dir_minus.set_sensitive(False)
+            self.lbl_feed_dir.set_label('BWD')
+        else:
+            self.btn_feed_dir_plus.set_sensitive(True)
+            self.btn_feed_dir_minus.set_sensitive(True)
+            self.lbl_feed_dir.set_label('STOP')
 
 
 

@@ -39,9 +39,9 @@ addf arc_ok_comp servo-thread
 #net thc2-volts-req         thc2.volts-requested            thctab.volts-requested
 #net thc2-volts             thc2.volts                      thctab.volts
 
-#net feed-plus           <= hotkeys.feed_plus            => thctab.feed-direct-plus
-#net feed-minus          <= hotkeys.feed_minus           => thctab.feed-direct-minus
-#net adaptive_feed       => motion.adaptive-feed         <= thctab.feed-direct-val
+net feed-plus           <= hotkeys.feed_plus            => thctab.feed-dir-plus
+net feed-minus          <= hotkeys.feed_minus           => thctab.feed-dir-minus
+net adaptive_feed       => motion.adaptive-feed         <= thctab.feed-dir
 
 #net volts-plus          <= hotkeys.volts_plus           =>  thctab.volts-plus
 #net volts-minus         <= hotkeys.volts_minus          =>  thctab.volts-minus
