@@ -3,95 +3,6 @@
   <!-- interface-requires gladevcp 0.0 -->
   <requires lib="gtk+" version="2.24"/>
   <!-- interface-naming-policy project-wide -->
-  <object class="GtkAdjustment" id="adj_adaptive_feed">
-    <property name="lower">-1</property>
-    <property name="upper">1</property>
-    <property name="value">1</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">1</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_cor_vel">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_cor_vel_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_cut_hght">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_cut_hght_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_jump_height">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_jump_height_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_pierce_del">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_pierce_del_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_pierce_hght">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_pierce_hght_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_rele_delay">
-    <property name="upper">4</property>
-    <property name="value">0.40000000000000002</property>
-    <property name="step_increment">0.050000000000000003</property>
-    <property name="page_increment">0.10000000000000001</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_safe_z">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_safe_z_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_scale-offset">
-    <property name="upper">100</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">1</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_set_coord_x">
-    <property name="lower">-2000</property>
-    <property name="upper">100</property>
-    <property name="value">-100</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_set_coord_y">
-    <property name="upper">6020</property>
-    <property name="value">100</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">10</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_stop_del">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_stop_del_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_thc_speed">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_thc_speed_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_vel-scale">
-    <property name="upper">1</property>
-    <property name="value">0.040000000000000001</property>
-    <property name="step_increment">0.10000000000000001</property>
-    <property name="page_increment">0.10000000000000001</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_vel_tol">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_vel_tol_changed" swapped="no"/>
-  </object>
-  <object class="GtkAdjustment" id="adj_voltage-tol">
-    <property name="upper">10</property>
-    <property name="value">1</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">1</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_volts-requested">
-    <property name="upper">500</property>
-    <property name="value">125</property>
-    <property name="step_increment">1</property>
-    <property name="page_increment">1</property>
-  </object>
-  <object class="GtkAdjustment" id="adj_z_speed">
-    <property name="upper">1</property>
-    <signal name="value-changed" handler="adj_z_speed_changed" swapped="no"/>
-  </object>
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
     <child>
@@ -932,6 +843,18 @@
                       <placeholder/>
                     </child>
                     <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
                       <object class="HAL_Label" id="PlasmaCUT.kz">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
@@ -958,55 +881,10 @@
                                 <property name="n_rows">14</property>
                                 <property name="n_columns">4</property>
                                 <child>
-                                  <object class="HAL_Label" id="hal_label16">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Высота
-прожига:</property>
-                                    <property name="text_template">Pierce height</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">1</property>
-                                    <property name="bottom_attach">2</property>
-                                    <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="HAL_Label" id="hal_label17">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Высота
-подпрыжки:</property>
-                                    <property name="text_template">Jump height</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">3</property>
-                                    <property name="bottom_attach">4</property>
-                                    <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="HAL_Label" id="hal_label22">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Безопасная 
-высота переездов:</property>
-                                    <property name="text_template">Safe Z</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">11</property>
-                                    <property name="bottom_attach">12</property>
-                                    <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                  </packing>
-                                </child>
-                                <child>
                                   <object class="GtkLabel" id="lbl_pierce_hght">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">7.0</property>
+                                    <property name="label" translatable="yes">val</property>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1019,7 +897,7 @@
                                   <object class="GtkLabel" id="lbl_jump_hght">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">0.0</property>
+                                    <property name="label" translatable="yes">val</property>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1032,7 +910,7 @@
                                   <object class="GtkLabel" id="lbl_safe_z">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">30.0</property>
+                                    <property name="label" translatable="yes">val</property>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1188,25 +1066,10 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="HAL_Label" id="hal_label19">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Задержка 
-прожига.:</property>
-                                    <property name="text_template">Pierce delay</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">5</property>
-                                    <property name="bottom_attach">6</property>
-                                    <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                  </packing>
-                                </child>
-                                <child>
                                   <object class="GtkLabel" id="lbl_pierce_del">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">0.0</property>
+                                    <property name="label" translatable="yes">val</property>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1250,25 +1113,10 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="HAL_Label" id="hal_label18">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Высота
-резки:</property>
-                                    <property name="text_template">Cut height</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">7</property>
-                                    <property name="bottom_attach">8</property>
-                                    <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                  </packing>
-                                </child>
-                                <child>
                                   <object class="GtkLabel" id="lbl_cut_hght">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">8.0</property>
+                                    <property name="label" translatable="yes">val</property>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1312,25 +1160,10 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="HAL_Label" id="hal_label13">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Скорость 
-поиска:</property>
-                                    <property name="text_template">Axis Z speed</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">13</property>
-                                    <property name="bottom_attach">14</property>
-                                    <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                  </packing>
-                                </child>
-                                <child>
                                   <object class="GtkLabel" id="lbl_z_speed">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">800.0</property>
+                                    <property name="label" translatable="yes">val</property>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1396,25 +1229,10 @@
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="HAL_Label" id="hal_label7">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Задержка 
-продувки.:</property>
-                                    <property name="text_template">Cut height</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">9</property>
-                                    <property name="bottom_attach">10</property>
-                                    <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                  </packing>
-                                </child>
-                                <child>
                                   <object class="GtkLabel" id="lbl_stop_del">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="label" translatable="yes">13.0</property>
+                                    <property name="label" translatable="yes">val</property>
                                   </object>
                                   <packing>
                                     <property name="left_attach">1</property>
@@ -1464,6 +1282,97 @@
                                   </object>
                                   <packing>
                                     <property name="right_attach">4</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label7">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Высота
+прожига:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">1</property>
+                                    <property name="bottom_attach">2</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label8">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Высота
+подпрыжки:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">3</property>
+                                    <property name="bottom_attach">4</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label17">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Задержка 
+прожига:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">5</property>
+                                    <property name="bottom_attach">6</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label21">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Скорость 
+поиска:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">13</property>
+                                    <property name="bottom_attach">14</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label20">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Безопасная 
+высота переездов:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">11</property>
+                                    <property name="bottom_attach">12</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label19">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Задержка 
+продувки:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">9</property>
+                                    <property name="bottom_attach">10</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label18">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Высота
+резки:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">7</property>
+                                    <property name="bottom_attach">8</property>
                                   </packing>
                                 </child>
                               </object>
@@ -1589,7 +1498,7 @@
                                       </packing>
                                     </child>
                                     <child>
-                                      <object class="GtkLabel" id="lbl_volts_requested">
+                                      <object class="GtkLabel" id="lbl_volts_req">
                                         <property name="visible">True</property>
                                         <property name="can_focus">False</property>
                                         <property name="label" translatable="yes">V(req)</property>
@@ -1810,49 +1719,16 @@
                                           <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="HAL_Label" id="hal_label8">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="xalign">0</property>
-                                            <property name="label" translatable="yes">Отклонение 
-по скорости, %:</property>
-                                            <property name="text_template">Vel. tol, %:</property>
-                                          </object>
-                                          <packing>
-                                            <property name="top_attach">3</property>
-                                            <property name="bottom_attach">4</property>
-                                            <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="HAL_Label" id="lbl_cor_vel">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">20.0</property>
-                                            <property name="label_pin_type">1</property>
-                                            <property name="text_template">20.0</property>
-                                          </object>
-                                          <packing>
-                                            <property name="left_attach">1</property>
-                                            <property name="right_attach">2</property>
-                                            <property name="top_attach">1</property>
-                                            <property name="bottom_attach">2</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="HAL_Label" id="lbl_vel_tol">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">90.0</property>
-                                            <property name="label_pin_type">1</property>
-                                            <property name="text_template">90.0</property>
-                                          </object>
-                                          <packing>
-                                            <property name="left_attach">1</property>
-                                            <property name="right_attach">2</property>
-                                            <property name="top_attach">3</property>
-                                            <property name="bottom_attach">4</property>
-                                          </packing>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
                                         </child>
                                         <child>
                                           <object class="GtkButton" id="btn_cor_vel_plus">
@@ -2256,21 +2132,6 @@
                                           <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="HAL_Label" id="hal_label3">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="xalign">0</property>
-                                            <property name="label" translatable="yes">Скорость 
-корректировки, %:</property>
-                                            <property name="text_template">Cor. vel, %:</property>
-                                          </object>
-                                          <packing>
-                                            <property name="top_attach">1</property>
-                                            <property name="bottom_attach">2</property>
-                                            <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                          </packing>
-                                        </child>
-                                        <child>
                                           <placeholder/>
                                         </child>
                                         <child>
@@ -2319,34 +2180,7 @@
                                           <placeholder/>
                                         </child>
                                         <child>
-                                          <object class="HAL_Label" id="hal_label2">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="xalign">0</property>
-                                            <property name="label" translatable="yes">Коэффициент
-для датчика Холла:</property>
-                                            <property name="text_template">Cor. vel, %:</property>
-                                          </object>
-                                          <packing>
-                                            <property name="top_attach">5</property>
-                                            <property name="bottom_attach">6</property>
-                                            <property name="x_options">GTK_EXPAND | GTK_SHRINK | GTK_FILL</property>
-                                          </packing>
-                                        </child>
-                                        <child>
-                                          <object class="HAL_Label" id="lbl_hall_value">
-                                            <property name="visible">True</property>
-                                            <property name="can_focus">False</property>
-                                            <property name="label" translatable="yes">Val</property>
-                                            <property name="label_pin_type">1</property>
-                                            <property name="text_template">90.0</property>
-                                          </object>
-                                          <packing>
-                                            <property name="left_attach">1</property>
-                                            <property name="right_attach">2</property>
-                                            <property name="top_attach">5</property>
-                                            <property name="bottom_attach">6</property>
-                                          </packing>
+                                          <placeholder/>
                                         </child>
                                         <child>
                                           <placeholder/>
@@ -2389,6 +2223,9 @@
                                           <placeholder/>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="GtkButton" id="btn_hall_value_minus">
                                             <property name="label" translatable="yes">-</property>
                                             <property name="width_request">25</property>
@@ -2415,6 +2252,87 @@
                                         </child>
                                         <child>
                                           <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="label27">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="label" translatable="yes">Коэффициент
+для датчика Холла:</property>
+                                          </object>
+                                          <packing>
+                                            <property name="top_attach">5</property>
+                                            <property name="bottom_attach">6</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="label26">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="label" translatable="yes">Отклонение 
+по скорости, %:</property>
+                                          </object>
+                                          <packing>
+                                            <property name="top_attach">3</property>
+                                            <property name="bottom_attach">4</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="label25">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="label" translatable="yes">Скорость 
+корректировки, %:</property>
+                                          </object>
+                                          <packing>
+                                            <property name="top_attach">1</property>
+                                            <property name="bottom_attach">2</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="lbl_vel_tol">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="label" translatable="yes">vel_tol</property>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">1</property>
+                                            <property name="right_attach">2</property>
+                                            <property name="top_attach">3</property>
+                                            <property name="bottom_attach">4</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="lbl_cor_vel">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="label" translatable="yes">cor_vel</property>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">1</property>
+                                            <property name="right_attach">2</property>
+                                            <property name="top_attach">1</property>
+                                            <property name="bottom_attach">2</property>
+                                          </packing>
+                                        </child>
+                                        <child>
+                                          <object class="GtkLabel" id="lbl_hall_value">
+                                            <property name="visible">True</property>
+                                            <property name="can_focus">False</property>
+                                            <property name="label" translatable="yes">hall_val</property>
+                                          </object>
+                                          <packing>
+                                            <property name="left_attach">1</property>
+                                            <property name="right_attach">2</property>
+                                            <property name="top_attach">5</property>
+                                            <property name="bottom_attach">6</property>
+                                          </packing>
                                         </child>
                                       </object>
                                     </child>
@@ -2478,19 +2396,57 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
-        </child>
-        <child>
-          <object class="GtkLabel" id="lbl_print">
+          <object class="GtkHBox" id="hbox4">
+            <property name="height_request">20</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">label</property>
+            <child>
+              <object class="GtkLabel" id="lbl_print">
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">0</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="lbl_print1">
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+            <child>
+              <object class="GtkLabel" id="lbl_print2">
+                <property name="height_request">20</property>
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="label" translatable="yes">label</property>
+              </object>
+              <packing>
+                <property name="expand">True</property>
+                <property name="fill">True</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
           </object>
           <packing>
             <property name="top_attach">4</property>
             <property name="bottom_attach">5</property>
-            <property name="y_options"/>
           </packing>
+        </child>
+        <child>
+          <placeholder/>
         </child>
       </object>
     </child>
