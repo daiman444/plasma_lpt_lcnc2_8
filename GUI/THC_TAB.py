@@ -94,7 +94,7 @@ class PlasmaClass:
         self.ini_filename = __name__ + ".var"
         self.ini = IniFile(self.ini_filename, self.defaults, self.builder)
         self.ini.restore_state(self)
-
+# TODO переделать инициализацию MDI команд через цикл
         self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x', 'zero-y', 'zero-z', 'gotoend', 'set_coord',
                                     'btn_feed_minus', 'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
 
@@ -107,6 +107,7 @@ class PlasmaClass:
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
         self.builder.get_object('set_coord').connect('pressed', self.setcoord)
 
+        # TODO переделать инициализацию для я "feed_dir" через цикл
         # feed direction
         self.pin_feed_dir_plus = hal_glib.GPin(halcomp.newpin('feed-dir-plus', hal.HAL_BIT, hal.HAL_IN))
         self.pin_feed_dir_plus.connect('value-changed', self.feed_direction_change, 1)
