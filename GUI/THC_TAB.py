@@ -1,11 +1,9 @@
 #!/usr/bin/env python2
 # -*- coding:UTF-8 -*-
 
-import sys
 import os
 import hal_glib  # needed to make our own hal pins
 import hal  # needed to make our own hal pins
-import gobject
 import gtk
 import linuxcnc
 
@@ -23,15 +21,18 @@ INIPATH = os.environ.get('INI_FILE_NAME', '/dev/null')
 
 class PlasmaClass:
     def __init__(self, halcomp, builder, useropts):
+        self.useropts = useropts
         self.hglib = hal_glib
+        self.hglib_pin = hal_glib.GPin
         self.lcnc = linuxcnc
         self.command = linuxcnc.command()
         self.stat = linuxcnc.stat()
         self.inifile = self.lcnc.ini(INIPATH)
         self.builder = builder
+        self.b_g_o = builder.get_object
         self.halcomp = halcomp
-        #GSTAT.connect('homed', lambda w: self.check_state('homed'))
-        #GSTAT.connect('motion-mode-changed', self.check_state)
+        # GSTAT.connect('homed', lambda w: self.check_state('homed'))
+        # GSTAT.connect('motion-mode-changed', self.check_state)
         self.defaults = {IniFile.vars: {"pierce_hghtval": 7.0,
                                         "pierce_hghtmax": 15.0,
                                         "pierce_hghtmin": 1.0,
@@ -95,7 +96,7 @@ class PlasmaClass:
         self.ini.restore_state(self)
 
         self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x', 'zero-y', 'zero-z', 'gotoend', 'set_coord',
-                                  'btn_feed_minus', 'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
+                                    'btn_feed_minus', 'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
 
         # buttons reset coordinates
         self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
@@ -127,115 +128,29 @@ class PlasmaClass:
         self.lbl_feed_dir = self.builder.get_object('lbl_feed_dir')
         self.lbl_feed_dir.set_label('FWD')
 
-        # push-buttons list for change values
+        # declaring widgets as a list.
+        # push-buttons list for change values:
+        self.widgets_list = ['volts_req', 'cor_vel', 'vel_tol', 'hall_value',
+                             'pierce_hght', 'jump_hght', 'pierce_del', 'cut_hght',
+                             'stop_del', 'safe_z', 'z_speed', ]
 
-        # volts requestion
-        self.btn_volts_req_plus = builder.get_object('btn_volts_req_plus')
-        self.btn_volts_req_plus.connect('pressed', self.widget_value_change, 'volts_req', 1)
-        self.btn_volts_req_minus = builder.get_object('btn_volts_req_minus')
-        self.btn_volts_req_minus.connect('pressed', self.widget_value_change, 'volts_req', -1)
-        self.pin_volts_req = hal_glib.GPin(halcomp.newpin('volts-req', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_volts_req.value = self.volts_reqval
-        self.builder.get_object('lbl_volts_req').set_label(str(self.volts_reqval))
+        # for a simplified call to dictionary values, we will declare a variable
+        # referring to the dictionary:
+        self.defs = self.defaults[IniFile.vars]
 
-        # correction velocity
-        self.btn_cor_vel_plus = builder.get_object('btn_cor_vel_plus')
-        self.btn_cor_vel_plus.connect('pressed', self.widget_value_change, 'cor_vel', 1)
-        self.btn_cor_vel_minus = builder.get_object('btn_cor_vel_minus')
-        self.btn_cor_vel_minus.connect('pressed', self.widget_value_change, 'cor_vel', -1)
-        self.pin_cor_vel = hal_glib.GPin(halcomp.newpin('cor-vel', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_cor_vel.value = self.volts_reqval
-        self.builder.get_object('lbl_cor_vel').set_label(str(self.cor_velval))
+        # after widgets_list declaration star the widget initialisation cycle:
+        for name in self.widgets_list:
+            # declaring defaults values to display
+            self.b_g_o('lbl_' + name).set_label('%s' % self.defs[name + 'val'])
+            self.b_g_o('btn_' + name + '_plus').connect('pressed', self.widget_value_change, name, 1)
+            if self.defs[name + 'val'] == self.defs[name + 'max']:
+                self.b_g_o('btn_' + name + '_plus').set_sensitive(False)
+            self.b_g_o('btn_' + name + '_minus').connect('pressed', self.widget_value_change, name, -1)
+            if self.defs[name + 'val'] == self.defs[name + 'min']:
+                self.b_g_o('btn_' + name + '_minus').set_sensitive(False)
+            self.hglib_pin(self.halcomp.newpin(name, hal.HAL_FLOAT, hal.HAL_OUT)).value = self.defs[name + 'val']
 
-        # velocity tolerance
-        self.btn_vel_tol_plus = builder.get_object('btn_vel_tol_plus')
-        self.btn_vel_tol_plus.connect('pressed', self.widget_value_change, 'vel_tol', 1)
-        self.btn_vel_tol_minus = builder.get_object('btn_vel_tol_minus')
-        self.btn_vel_tol_minus.connect('pressed', self.widget_value_change, 'vel_tol', -1)
-        self.pin_vel_tol = hal_glib.GPin(halcomp.newpin('vel-tol', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_vel_tol.value = self.vel_tolval
-        self.builder.get_object('lbl_vel_tol').set_label(str(self.vel_tolval))
-
-        # hall sensor value
-        self.btn_hall_value_plus = builder.get_object('btn_hall_value_plus')
-        self.btn_hall_value_plus.connect('pressed', self.widget_value_change, 'hall_value', 1)
-        self.btn_hall_value_minus = builder.get_object('btn_hall_value_minus')
-        self.btn_hall_value_minus.connect('pressed', self.widget_value_change, 'hall_value', -1)
-        self.pin_hall_value = hal_glib.GPin(halcomp.newpin('hall-value', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_hall_value.value = self.hall_valueval
-        self.builder.get_object('lbl_hall_value').set_label(str(self.hall_valueval))
-
-        # pierce height
-        self.btn_pierce_hght_plus = builder.get_object('btn_pierce_hght_plus')
-        self.btn_pierce_hght_plus.connect('pressed', self.widget_value_change, 'pierce_hght', 1)
-        self.btn_pierce_hght_minus = builder.get_object('btn_pierce_hght_minus')
-        self.btn_pierce_hght_minus.connect('pressed', self.widget_value_change, 'pierce_hght', -1)
-        self.pin_pierce_hght = hal_glib.GPin(halcomp.newpin('pierce-hght', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_pierce_hght.value = self.pierce_hghtval
-        self.builder.get_object('lbl_pierce_hght').set_label(str(self.pierce_hghtval))
-
-        # jump height
-        self.btn_jump_hght_plus = builder.get_object('btn_jump_hght_plus')
-        self.btn_jump_hght_plus.connect('pressed', self.widget_value_change, 'jump_hght', 1)
-        self.btn_jump_hght_minus = builder.get_object('btn_jump_hght_minus')
-        self.btn_jump_hght_minus.connect('pressed', self.widget_value_change, 'jump_hght', -1)
-        self.btn_jump_hght_minus.set_sensitive(False)
-        self.pin_jump_hght = hal_glib.GPin(halcomp.newpin('jump-hght', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_jump_hght.value = self.jump_hghtval
-        self.builder.get_object('lbl_jump_hght').set_label(str(self.jump_hghtval))
-
-        # pierce delay
-        self.btn_pierce_del_plus = builder.get_object('btn_pierce_del_plus')
-        self.btn_pierce_del_plus.connect('pressed', self.widget_value_change, 'pierce_del', 1)
-        self.btn_pierce_del_minus = builder.get_object('btn_pierce_del_minus')
-        self.btn_pierce_del_minus.connect('pressed', self.widget_value_change, 'pierce_del', -1)
-        self.btn_pierce_del_minus.set_sensitive(False)
-        self.pin_pierce_del = hal_glib.GPin(halcomp.newpin('pierce-del', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_pierce_del.value = self.pierce_delval
-        self.builder.get_object('lbl_pierce_del').set_label(str(self.pierce_delval))
-
-        # cutting height
-        self.btn_cut_hght_plus = builder.get_object('btn_cut_hght_plus')
-        self.btn_cut_hght_plus.connect('pressed', self.widget_value_change, 'cut_hght', 1)
-        self.btn_cut_hght_minus = builder.get_object('btn_cut_hght_minus')
-        self.btn_cut_hght_minus.connect('pressed', self.widget_value_change, 'cut_hght', -1)
-        self.pin_cut_hght = hal_glib.GPin(halcomp.newpin('cut-hght', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_cut_hght.value = self.cut_hghtval
-        self.builder.get_object('lbl_cut_hght').set_label(str(self.cut_hghtval))
-
-        # stop delay
-        self.btn_stop_del_plus = builder.get_object('btn_stop_del_plus')
-        self.btn_stop_del_plus.connect('pressed', self.widget_value_change, 'stop_del', 1)
-        self.btn_stop_del_minus = builder.get_object('btn_stop_del_minus')
-        self.btn_stop_del_minus.connect('pressed', self.widget_value_change, 'stop_del', -1)
-        self.pin_stop_del = hal_glib.GPin(halcomp.newpin('stop-del', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_stop_del.value = self.stop_delval
-        self.builder.get_object('lbl_stop_del').set_label(str(self.stop_delval))
-
-        # safe Z height
-        self.btn_safe_z_plus = builder.get_object('btn_safe_z_plus')
-        self.btn_safe_z_plus.connect('pressed', self.widget_value_change, 'safe_z', 1)
-        self.btn_safe_z_minus = builder.get_object('btn_safe_z_minus')
-        self.btn_safe_z_minus.connect('pressed', self.widget_value_change, 'safe_z', -1)
-        self.pin_safe_z = hal_glib.GPin(halcomp.newpin('safe-z', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_safe_z.value = self.safe_zval
-        self.builder.get_object('lbl_safe_z').set_label(str(self.safe_zval))
-
-        # probing velocity
-        self.btn_z_speed_plus = builder.get_object('btn_z_speed_plus')
-        self.btn_z_speed_plus.connect('pressed', self.widget_value_change, 'z_speed', 1)
-        self.btn_z_speed_minus = builder.get_object('btn_z_speed_minus')
-        self.btn_z_speed_minus.connect('pressed', self.widget_value_change, 'z_speed', -1)
-        self.pin_z_speed = hal_glib.GPin(halcomp.newpin('z-speed', hal.HAL_FLOAT, hal.HAL_OUT))
-        self.pin_z_speed.value = self.z_speedval
-        self.builder.get_object('lbl_z_speed').set_label(str(self.z_speedval))
-
-        # TODO дополнить необходимыми вызовами
-
-
-
-
-    def check_state(self, data):
+    def check_state(self):
         pass
         '''
         if data == 'homed':
@@ -287,11 +202,26 @@ class PlasmaClass:
             self.lbl_feed_dir.set_label('STOP')
 
     def widget_value_change(self, widget, name, value):
+        self.defs[name + 'val'] += self.defs[name + 'incr'] * value
+        if self.defs[name + 'val'] >= self.defs[name + 'max']:
+            self.defs[name + 'val'] = self.defs[name + 'max']
+            self.b_g_o('btn_' + name + '_plus').set_sensitive(False)
+        elif self.defs[name + 'val'] <= self.defs[name + 'min']:
+            self.defs[name + 'val'] = self.defs[name + 'min']
+            self.b_g_o('btn_' + name + '_minus').set_sensitive(False)
+        else:
+            self.b_g_o('btn_' + name + '_plus').set_sensitive(True)
+            self.b_g_o('btn_' + name + '_minus').set_sensitive(True)
+        self.b_g_o('lbl_' + name).set_label('%s' % self.defs[name + 'val'])
+        self.halcomp[name] = self.defs[name + 'val']
+
+        '''
+        образецц получения тех или иных значений с виджета
         self.builder.get_object('lbl_print').set_label(str(type(widget)))
         self.builder.get_object('lbl_print1').set_label(str(name))
         self.builder.get_object('lbl_print2').set_label(str(value))
+        '''
     # TODO закончить метод
-
 
 
 def get_handlers(halcomp, builder, useropts):
