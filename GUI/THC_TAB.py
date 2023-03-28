@@ -94,7 +94,7 @@ class PlasmaClass:
         self.ini_filename = __name__ + ".var"
         self.ini = IniFile(self.ini_filename, self.defaults, self.builder)
         self.ini.restore_state(self)
-# TODO переделать инициализацию MDI команд через цикл
+
         self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x', 'zero-y', 'zero-z', 'gotoend', 'set_coord',
                                     'btn_feed_minus', 'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
 
@@ -107,7 +107,6 @@ class PlasmaClass:
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
         self.builder.get_object('set_coord').connect('pressed', self.setcoord)
 
-        # TODO переделать инициализацию для я "feed_dir" через цикл
         # feed direction
         self.pin_feed_dir_plus = hal_glib.GPin(halcomp.newpin('feed-dir-plus', hal.HAL_BIT, hal.HAL_IN))
         self.pin_feed_dir_plus.connect('value-changed', self.feed_direction_change, 1)
@@ -134,6 +133,8 @@ class PlasmaClass:
         self.widgets_list = ['volts_req', 'cor_vel', 'vel_tol', 'hall_value',
                              'pierce_hght', 'jump_hght', 'pierce_del', 'cut_hght',
                              'stop_del', 'safe_z', 'z_speed', ]
+        self.volts = self.halcomp.newpin('volts', hal.HAL_FLOAT, hal.HAL_IN)
+        self.b_g_o('lbl_volts').set_label('%.0f' % self.halcomp['volts'])
 
         # for a simplified call to dictionary values, we will declare a variable
         # referring to the dictionary:
@@ -157,14 +158,21 @@ class PlasmaClass:
             # declaring hal pin
             self.hglib_pin(self.halcomp.newpin(name, hal.HAL_FLOAT, hal.HAL_OUT)).value = self.defs[name + 'val']
 
+# TODO добить работу pb-buttons
+        # toggle buttons
+        # input hal pins for toggle buttons
+        self.list_tb_halpins = ['plasma-mode', 'ox-mode-in', 'thc-on-in', ]
+        for name in self.list_tb_halpins:
+            self.hglib_pin(halcomp.newpin(name + '-in', hal.HAL_BIT, hal.HAL_IN)).connect('value-changed', self.pb_changes)
+            self.halcomp.newpin(name + '-out', hal.HAL_BIT, hal.HAL_OUT)
+
+        self.b_g_o('tb_plasma').connect('toggled', self.pb_changes)
+
+
+
     def check_state(self):
         pass
-        '''
-        if data == 'homed':
-            for i in self.list_btns_set_coord:
-                self.builder.get_object(i).set_sensitive(True)
-        self.builder.get_object('lbl_print').set_label(str(data))
-'''
+
     def go_to_zero(self, w, d=None):
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi(d)
@@ -222,13 +230,12 @@ class PlasmaClass:
         self.b_g_o('lbl_' + name).set_label('%s' % self.defs[name + 'val'])
         self.halcomp[name] = self.defs[name + 'val']
 
-        '''
-        образецц получения тех или иных значений с виджета
-        self.builder.get_object('lbl_print').set_label(str(type(widget)))
-        self.builder.get_object('lbl_print1').set_label(str(name))
-        self.builder.get_object('lbl_print2').set_label(str(value))
-        '''
-    # TODO закончить метод
+    def pb_changes(self, w, d=None):
+        self.b_g_o('lbl_print').set_label('%s' % w.get_active())
+        self.b_g_o('lbl_print1').set_label('%s' % d)
+        self.halcomp['plasma-mode-out'] = w.get_active()
+
+
 
 
 def get_handlers(halcomp, builder, useropts):
