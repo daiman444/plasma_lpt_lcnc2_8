@@ -1,14 +1,9 @@
 # Include your custom HAL commands here
 # This file will not be overwritten when you run PNCconf again
 
-loadusr -Wn svarog mb2hal config=svarog.ini
-
 loadrt debounce cfg=1,1,2
 addf debounce.0 servo-thread
 addf debounce.1 servo-thread
-
-loadrt thc2
-addf thc2 servo-thread
 
 loadrt ahc
 addf ahc servo-thread
@@ -18,12 +13,11 @@ net probe-in                debounce.0.0.in                 parport.0.pin-15-in-
 net probe-out               debounce.0.0.out                motion.probe-input
 setp                        debounce.0.delay 5
 
-net thc2-thcu               thc2.thcu
-net thc2-thcd               thc2.thcd
-net thc2-volts              thc2.volts
+net thcu                    parport.0.pin-12-in-not
+net thcd                    parport.0.pin-13-in-not
 
 # debounce arc_ok
-net deb-thc2-arc-ok-in      debounce.1.0.in                 thc2.arc-ok-status
+net deb-thc2-arc-ok-in      debounce.1.0.in                 parport.0.pin-11-in-not
 net deb-arc-ok-out          debounce.1.0.out
 setp                        debounce.1.delay                5
 ###
@@ -31,8 +25,9 @@ setp                        debounce.1.delay                5
 #пины режима резки
 net plasma                  ahc.plasma                      motion.digital-out-01 
 net oxygen                  ahc.oxygen                      motion.digital-out-02
-net thc2-thcu               ahc.torch-up
-net thc2-thcd               ahc.torch-down
+net thcu                    ahc.torch-up
+net thcd                    ahc.torch-down
+net deb-arc-ok-out          ahc.arc-ok
 net current-vel             ahc.current-vel                 motion.current-vel
 net requested-vel           ahc.requested-vel               motion.requested-vel
 net spindle-enable          ahc.torch-on
@@ -43,12 +38,8 @@ net removing-offset         ahc.removing-offset
 net vel-tol                 ahc.velocity-tol
 net cor-vel                 ahc.correction-vel
 
-net spindle-enable          spindle.0.on                    svarog.in.plasma_on 
-net thc2-encoder-vel        svarog.out.voltage.float        thc2.encoder-vel
-net hall_sensor             svarog.out.hall_sens.float      thc2.hall-sensor
-net deb-arc-ok-out          svarog.in.oscyl_off             ahc.arc-ok
+net spindle-enable          spindle.0.on                    parport.0.pin-17-out
 net deb-arc-ok-out          motion.digital-in-00
-setp                        thc2.hall-sens-set              100
 
 unlinkp                     joint.3.motor-pos-cmd
 net zpos-cmd                joint.3.motor-pos-cmd           ahc.z-pos-in

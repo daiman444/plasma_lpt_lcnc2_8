@@ -21,8 +21,6 @@ addf arc_ok_comp servo-thread
 #net probe-out           => thctab.led_probe-in
 #net spindle-enable      => thctab.led_spindle-on
 
-
-
 #net deb-arc-ok-out      => arc_ok_comp.in1
 #net arc_ok              <= arc_ok_comp.out              => thctab.led_ark-ok
 #net thc-enable          => thctab.led_thc_enable
@@ -36,12 +34,6 @@ addf arc_ok_comp servo-thread
 #net oxtorch-on          <= hotkeys.ohc_torch            => arc_ok_comp.in0
 #net oxtorch-on          => ahc.oxtorch-on               => motion.digital-in-09
 
-#net thc2-volts-req         thc2.volts-requested            thctab.volts-requested
-#net thc2-volts             thc2.volts                      thctab.volts
-
 net feed-plus           <= hotkeys.feed_plus            => thctab.feed-dir-plus
 net feed-minus          <= hotkeys.feed_minus           => thctab.feed-dir-minus
 net adaptive_feed       => motion.adaptive-feed         <= thctab.feed-dir
-
-#net volts-plus          <= hotkeys.volts_plus           =>  thctab.volts-plus
-#net volts-minus         <= hotkeys.volts_minus          =>  thctab.volts-minus

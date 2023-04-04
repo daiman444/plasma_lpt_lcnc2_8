@@ -130,11 +130,9 @@ class PlasmaClass:
 
         # declaring widgets as a list.
         # push-buttons list for change values:
-        self.widgets_list = ['volts_req', 'cor_vel', 'vel_tol', 'hall_value',
-                             'pierce_hght', 'jump_hght', 'pierce_del', 'cut_hght',
+        self.widgets_list = ['cor_vel', 'vel_tol', 'pierce_hght',
+                             'jump_hght', 'pierce_del', 'cut_hght',
                              'stop_del', 'safe_z', 'z_speed', ]
-        self.volts = self.halcomp.newpin('volts', hal.HAL_FLOAT, hal.HAL_IN)
-        self.b_g_o('lbl_volts').set_label('%.0f' % self.halcomp['volts'])
 
         # for a simplified call to dictionary values, we will declare a variable
         # referring to the dictionary:
@@ -165,9 +163,7 @@ class PlasmaClass:
         for name in self.list_tb_halpins:
             self.hglib_pin(halcomp.newpin(name + '-in', hal.HAL_BIT, hal.HAL_IN)).connect('value-changed', self.pb_changes)
             self.halcomp.newpin(name + '-out', hal.HAL_BIT, hal.HAL_OUT)
-
         self.b_g_o('tb_plasma').connect('toggled', self.pb_changes)
-
 
 
     def check_state(self):
