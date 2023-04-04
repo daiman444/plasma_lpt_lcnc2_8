@@ -1,7 +1,15 @@
 # Include your custom HAL commands here
 # This file will not be overwritten when you run PNCconf again
 
-loadusr -Wn svarog mb2hal config=svarog.ini
+#loadusr -Wn svarog mb2hal config=svarog.ini
+
+loadrt encoder num_chan=1
+addf encoder.update-counters base-thread
+addf encoder.capture-position servo-thread
+setp encoder.0.counter-mode True
+setp encoder.0.position-scale 1.000000
+net conter	encoder.0.phase-A		parport.0.pin-13-in-not
+net thc2-encoder-vel	encoder.0.velocity
 
 loadrt debounce cfg=1,1,2
 addf debounce.0 servo-thread
@@ -43,12 +51,14 @@ net removing-offset         ahc.removing-offset
 net vel-tol                 ahc.velocity-tol
 net cor-vel                 ahc.correction-vel
 
-net spindle-enable          spindle.0.on                    svarog.in.plasma_on 
-net thc2-encoder-vel        svarog.out.voltage.float        thc2.encoder-vel
-net hall_sensor             svarog.out.hall_sens.float      thc2.hall-sensor
-net deb-arc-ok-out          svarog.in.oscyl_off             ahc.arc-ok
+net spindle-enable          spindle.0.on					parport.0.pin-17-out
+#net spindle-enable          spindle.0.on                    svarog.in.plasma_on 
+net thc2-encoder-vel		thc2.encoder-vel
+#net thc2-encoder-vel        svarog.out.voltage.float        thc2.encoder-vel
+#net hall_sensor             svarog.out.hall_sens.float      thc2.hall-sensor
+#net deb-arc-ok-out          svarog.in.oscyl_off             ahc.arc-ok
 net deb-arc-ok-out          motion.digital-in-00
-setp                        thc2.hall-sens-set              100
+#setp                        thc2.hall-sens-set              100
 
 unlinkp                     joint.3.motor-pos-cmd
 net zpos-cmd                joint.3.motor-pos-cmd           ahc.z-pos-in
