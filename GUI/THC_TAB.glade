@@ -11,6 +11,9 @@
         <property name="can_focus">False</property>
         <property name="n_rows">8</property>
         <child>
+          <placeholder/>
+        </child>
+        <child>
           <object class="GtkFrame" id="frame1">
             <property name="height_request">80</property>
             <property name="visible">True</property>
@@ -583,7 +586,7 @@
                     <property name="n_rows">2</property>
                     <property name="n_columns">2</property>
                     <child>
-                      <object class="GtkToggleButton" id="togglebutton1">
+                      <object class="GtkToggleButton" id="tb_plasma">
                         <property name="label" translatable="yes">Plasma</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -591,7 +594,7 @@
                       </object>
                     </child>
                     <child>
-                      <object class="GtkToggleButton" id="togglebutton2">
+                      <object class="GtkToggleButton" id="tb_ox">
                         <property name="label" translatable="yes">Oxygen</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -603,7 +606,7 @@
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkToggleButton" id="togglebutton3">
+                      <object class="GtkToggleButton" id="tb_thc">
                         <property name="label" translatable="yes">THC Control</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
@@ -650,6 +653,18 @@
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
                     <property name="n_rows">10</property>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
+                    <child>
+                      <placeholder/>
+                    </child>
                     <child>
                       <placeholder/>
                     </child>
@@ -1731,6 +1746,21 @@
                                           <placeholder/>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="GtkButton" id="btn_cor_vel_plus">
                                             <property name="label" translatable="yes">+</property>
                                             <property name="width_request">25</property>
@@ -2226,6 +2256,9 @@
                                           <placeholder/>
                                         </child>
                                         <child>
+                                          <placeholder/>
+                                        </child>
+                                        <child>
                                           <object class="GtkButton" id="btn_hall_value_minus">
                                             <property name="label" translatable="yes">-</property>
                                             <property name="width_request">25</property>
@@ -2240,6 +2273,9 @@
                                             <property name="top_attach">5</property>
                                             <property name="bottom_attach">6</property>
                                           </packing>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
                                         </child>
                                         <child>
                                           <placeholder/>
@@ -2333,6 +2369,9 @@
                                             <property name="top_attach">5</property>
                                             <property name="bottom_attach">6</property>
                                           </packing>
+                                        </child>
+                                        <child>
+                                          <placeholder/>
                                         </child>
                                       </object>
                                     </child>
@@ -2444,9 +2483,6 @@
             <property name="top_attach">4</property>
             <property name="bottom_attach">5</property>
           </packing>
-        </child>
-        <child>
-          <placeholder/>
         </child>
       </object>
     </child>
