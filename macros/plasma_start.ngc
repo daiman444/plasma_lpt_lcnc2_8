@@ -1,9 +1,9 @@
 O<plasma_start> SUB
-#<1> = #<_hal[THCTAB.z-speed]>
-#<2> = #<_hal[THCTAB.prc-hght]>
-#<3> = #<_hal[THCTAB.jump]>
-#<4> = #<_hal[THCTAB.cut-hght]>
-#<5> = #<_hal[THCTAB.prc-del]>
+#<1> = #<_hal[THCTAB.z_speed]>
+#<2> = #<_hal[THCTAB.pierce_hght]>
+#<3> = #<_hal[THCTAB.jump_hght]>
+#<4> = #<_hal[THCTAB.cut_hght]>
+#<5> = #<_hal[THCTAB.pierce_del]>
 
 
 G91

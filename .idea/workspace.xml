@@ -7,15 +7,11 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="pb_buttons: added TODO">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023,_13_10_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023,_13_32_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023__13_10__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_26_03_2023__13_32__Changes_.xml" beforeDir="false" />
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="regress to armatura ural">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HAL/custom.hal" beforeDir="false" afterPath="$PROJECT_DIR$/HAL/custom.hal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HAL/custom_postgui.hal" beforeDir="false" afterPath="$PROJECT_DIR$/HAL/custom_postgui.hal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.glade" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.glade" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macros/plasma_start.ngc" beforeDir="false" afterPath="$PROJECT_DIR$/macros/plasma_start.ngc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macros/plasma_stop.ngc" beforeDir="false" afterPath="$PROJECT_DIR$/macros/plasma_stop.ngc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680016857298</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="regress to armatura ural">
+      <created>1680623041156</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680623041156</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -185,6 +188,7 @@
     <MESSAGE value="declaring widgets and method for them ready" />
     <MESSAGE value="added TODO" />
     <MESSAGE value="pb_buttons: added TODO" />
-    <option name="LAST_COMMIT_MESSAGE" value="pb_buttons: added TODO" />
+    <MESSAGE value="regress to armatura ural" />
+    <option name="LAST_COMMIT_MESSAGE" value="regress to armatura ural" />
   </component>
 </project>
