@@ -31,8 +31,6 @@ class PlasmaClass:
         self.builder = builder
         self.b_g_o = builder.get_object
         self.halcomp = halcomp
-        # GSTAT.connect('homed', lambda w: self.check_state('homed'))
-        # GSTAT.connect('motion-mode-changed', self.check_state)
         self.defaults = {IniFile.vars: {"pierce_hghtval": 7.0,
                                         "pierce_hghtmax": 15.0,
                                         "pierce_hghtmin": 1.0,
@@ -167,7 +165,7 @@ class PlasmaClass:
 
 
     def check_state(self):
-        pass
+        self.b_g_o('lbl_print2').set_label(str(self.stat.dout))
 
     def go_to_zero(self, w, d=None):
         self.command.mode(linuxcnc.MODE_MDI)
@@ -232,7 +230,7 @@ class PlasmaClass:
         self.halcomp['plasma-mode-out'] = w.get_active()
 
 
-
-
 def get_handlers(halcomp, builder, useropts):
     return [PlasmaClass(halcomp, builder, useropts)]
+
+

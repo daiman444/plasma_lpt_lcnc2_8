@@ -3,7 +3,7 @@
 # при следующем запуске stepconf
 loadrt [KINS]KINEMATICS
 #autoconverted  trivkins
-loadrt [EMCMOT]EMCMOT base_period_nsec=[EMCMOT]BASE_PERIOD servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS num_dio=20 
+loadrt [EMCMOT]EMCMOT base_period_nsec=[EMCMOT]BASE_PERIOD servo_period_nsec=[EMCMOT]SERVO_PERIOD num_joints=[KINS]JOINTS num_dio=3 num_aio=3
 #
 loadrt hal_parport cfg="0x378 out"
 setp parport.0.reset-time 5000
