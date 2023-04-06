@@ -7,11 +7,10 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="some">
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="rebuilt the panel funcion that sets the given coordinates along the x and y axes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.glade" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.glade" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var.bak" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var.bak" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +27,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2NMyBt0y5dFyhy1XOEowEozaCeO" />
   <component name="ProjectViewState">
@@ -183,7 +185,21 @@
       <option name="project" value="LOCAL" />
       <updated>1680715508043</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="rebuilt the panel funcion that sets the given coordinates along the x and y axes">
+      <created>1680792727578</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680792727578</updated>
+    </task>
+    <task id="LOCAL-00020" summary="rebuilt the panel funcion that sets the given coordinates along the x and y axes">
+      <created>1680792786105</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680792786105</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,6 +227,7 @@
     <MESSAGE value="regress to armatura ural" />
     <MESSAGE value="adjusting macros for the new panel handler" />
     <MESSAGE value="some" />
-    <option name="LAST_COMMIT_MESSAGE" value="some" />
+    <MESSAGE value="rebuilt the panel funcion that sets the given coordinates along the x and y axes" />
+    <option name="LAST_COMMIT_MESSAGE" value="rebuilt the panel funcion that sets the given coordinates along the x and y axes" />
   </component>
 </project>

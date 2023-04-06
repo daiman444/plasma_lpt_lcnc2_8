@@ -158,10 +158,9 @@ class PlasmaClass:
             # declaring hal pin
             self.hglib_pin(self.halcomp.newpin(name, hal.HAL_FLOAT, hal.HAL_OUT)).value = self.defs[name + 'val']
 
-# TODO добить работу pb-buttons
         # toggle buttons
         # input hal pins for toggle buttons
-        self.list_tb_halpins = ['plasma-mode', 'ox-mode-in', 'thc-on-in', ]
+        self.list_tb_halpins = ['plasma-mode', 'ox-mode-in', ]
         for name in self.list_tb_halpins:
             self.hglib_pin(halcomp.newpin(name + '-in', hal.HAL_BIT, hal.HAL_IN)).connect('value-changed', self.pb_changes)
             self.halcomp.newpin(name + '-out', hal.HAL_BIT, hal.HAL_OUT)
@@ -189,7 +188,6 @@ class PlasmaClass:
 
     def setcoord(self, widget, data=None):
         coord = self.builder.get_object('txt_set_coord_' + data).get_text()
-        self.b_g_o('lbl_print1').set_label(str(data + coord))
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi('G92{0}{1}'.format(data, float(coord)))
         self.command.wait_complete()
@@ -236,5 +234,3 @@ class PlasmaClass:
 
 def get_handlers(halcomp, builder, useropts):
     return [PlasmaClass(halcomp, builder, useropts)]
-
-
