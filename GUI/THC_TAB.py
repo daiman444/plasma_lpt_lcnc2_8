@@ -93,8 +93,10 @@ class PlasmaClass:
         self.ini = IniFile(self.ini_filename, self.defaults, self.builder)
         self.ini.restore_state(self)
 
-        self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x', 'zero-y', 'zero-z', 'gotoend', 'set_coord',
-                                    'btn_feed_minus', 'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
+        self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x',
+                                    'zero-y', 'zero-z', 'gotoend',
+                                    'set_coord_x', 'set_coord_y', 'btn_feed_minus',
+                                    'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
 
         # buttons reset coordinates
         self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
@@ -103,7 +105,9 @@ class PlasmaClass:
         self.builder.get_object('zero-y').connect('pressed', self.go_to_zero, 'G92 Y0')
         self.builder.get_object('zero-z').connect('pressed', self.go_to_zero, 'G92 Z0')
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
-        self.builder.get_object('set_coord').connect('pressed', self.setcoord)
+        self.builder.get_object('set_coord_x').connect('pressed', self.setcoord, 'x')
+        self.builder.get_object('set_coord_y').connect('pressed', self.setcoord, 'y')
+
 
         # feed direction
         self.pin_feed_dir_plus = hal_glib.GPin(halcomp.newpin('feed-dir-plus', hal.HAL_BIT, hal.HAL_IN))
@@ -183,11 +187,11 @@ class PlasmaClass:
         self.command.wait_complete()
         self.command.mode(linuxcnc.MODE_MANUAL)
 
-    def setcoord(self, w, d=None):
-        x_coord = self.builder.get_object('txt_set_coord_x').get_text()
-        y_coord = self.builder.get_object('txt_set_coord_y').get_text()
+    def setcoord(self, widget, data=None):
+        coord = self.builder.get_object('txt_set_coord_' + data).get_text()
+        self.b_g_o('lbl_print1').set_label(str(data + coord))
         self.command.mode(linuxcnc.MODE_MDI)
-        self.command.mdi('G92 X{0} Y{1}'.format(float(x_coord), float(y_coord)))
+        self.command.mdi('G92{0}{1}'.format(data, float(coord)))
         self.command.wait_complete()
         self.command.mode(linuxcnc.MODE_MANUAL)
 
