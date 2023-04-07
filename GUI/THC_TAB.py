@@ -93,6 +93,12 @@ class PlasmaClass:
         self.ini = IniFile(self.ini_filename, self.defaults, self.builder)
         self.ini.restore_state(self)
 
+        self.b_g_o('table1').set_sensitive(False)
+        GSTAT.connect('all-homed', lambda w: self.all_homed('homed'))
+        GSTAT.connect('mode-auto', lambda w: self.mode_change('auto'))
+        GSTAT.connect('mode-manual', lambda w: self.mode_change('manual'))
+        GSTAT.connect('mode-mdi', lambda w: self.mode_change('mdi'))
+
         self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x',
                                     'zero-y', 'zero-z', 'gotoend',
                                     'set_coord_x', 'set_coord_y', 'btn_feed_minus',
@@ -107,7 +113,6 @@ class PlasmaClass:
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
         self.builder.get_object('set_coord_x').connect('pressed', self.setcoord, 'x')
         self.builder.get_object('set_coord_y').connect('pressed', self.setcoord, 'y')
-
 
         # feed direction
         self.pin_feed_dir_plus = hal_glib.GPin(halcomp.newpin('feed-dir-plus', hal.HAL_BIT, hal.HAL_IN))
@@ -159,16 +164,15 @@ class PlasmaClass:
             self.hglib_pin(self.halcomp.newpin(name, hal.HAL_FLOAT, hal.HAL_OUT)).value = self.defs[name + 'val']
 
         # toggle buttons
-        # input hal pins for toggle buttons
-        self.list_tb_halpins = ['plasma-mode', 'ox-mode-in', ]
-        for name in self.list_tb_halpins:
-            self.hglib_pin(halcomp.newpin(name + '-in', hal.HAL_BIT, hal.HAL_IN)).connect('value-changed', self.pb_changes)
-            self.halcomp.newpin(name + '-out', hal.HAL_BIT, hal.HAL_OUT)
-        self.b_g_o('tb_plasma').connect('toggled', self.pb_changes)
+        self.b_g_o('tb_plasma').connect('toggled', self.pb_changes, 'plasma')
+        self.b_g_o('tb_ox').connect('toggled', self.pb_changes, 'ox')
 
-
-    def check_state(self):
-        self.b_g_o('lbl_print2').set_label(str(self.stat.dout))
+        #list to set sensitive widgets on mode auto/mdi/manual
+        self.widgets_in_mode = ['gotozero', 'gotoend', 'zero-xyz',
+                                'zero-x', 'zero-y', 'zero-z',
+                                'set_coord_x', 'txt_set_coord_x', 'set_coord_y',
+                                'txt_set_coord_y', 'tb_plasma', 'tb_ox',
+                                ]
 
     def go_to_zero(self, w, d=None):
         self.command.mode(linuxcnc.MODE_MDI)
@@ -218,18 +222,50 @@ class PlasmaClass:
             self.defs[name + 'val'] = self.defs[name + 'max']
             self.b_g_o('btn_' + name + '_plus').set_sensitive(False)
         elif self.defs[name + 'val'] <= self.defs[name + 'min']:
-            self.defs[name + 'val'] = self.defs[name + 'min']
+            self.defs[name + 'val'] = round(self.defs[name + 'min'], 1)
             self.b_g_o('btn_' + name + '_minus').set_sensitive(False)
         else:
             self.b_g_o('btn_' + name + '_plus').set_sensitive(True)
             self.b_g_o('btn_' + name + '_minus').set_sensitive(True)
         self.b_g_o('lbl_' + name).set_label('%s' % self.defs[name + 'val'])
-        self.halcomp[name] = self.defs[name + 'val']
+        self.halcomp[name] = round(self.defs[name + 'val'], 1)
 
     def pb_changes(self, w, d=None):
-        self.b_g_o('lbl_print').set_label('%s' % w.get_active())
-        self.b_g_o('lbl_print1').set_label('%s' % d)
-        self.halcomp['plasma-mode-out'] = w.get_active()
+        if w.get_active() == True and d == 'plasma':
+            self.b_g_o('tb_ox').set_active(False)
+            self.b_g_o('tb_ox').set_sensitive(False)
+            mcode = 'M64'
+            p = 'P1'
+        if w.get_active() == False and d == 'plasma':
+            self.b_g_o('tb_ox').set_sensitive(True)
+            mcode = 'M65'
+            p = 'P1'
+        if w.get_active() == True and d == 'ox':
+            self.b_g_o('tb_plasma').set_active(False)
+            self.b_g_o('tb_plasma').set_sensitive(False)
+            mcode = 'M64'
+            p = 'P2'
+        if w.get_active() == False and d == 'ox':
+            self.b_g_o('tb_plasma').set_sensitive(True)
+            mcode = 'M65'
+            p = 'P2'
+        self.command.mode(linuxcnc.MODE_MDI)
+        self.command.mdi(mcode + 'P0')
+        self.command.mdi(mcode + p)
+        self.command.wait_complete()
+        self.command.mode(linuxcnc.MODE_MANUAL)
+
+    def all_homed(self, stat):
+        if stat == 'homed':
+            self.b_g_o('table1').set_sensitive(True)
+
+    def mode_change(self, stat):
+        if stat == 'auto' or stat == 'mdi':
+            for i in self.widgets_in_mode:
+                self.b_g_o(i).set_sensitive(False)
+        if stat == 'manual':
+            for i in self.widgets_in_mode:
+                self.b_g_o(i).set_sensitive(True)
 
 
 def get_handlers(halcomp, builder, useropts):
