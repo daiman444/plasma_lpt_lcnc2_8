@@ -7,9 +7,9 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="added postprocessor for CAM">
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="all complite.&#10;start debugging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Other_files/Plasma_Oxygen_for_LinuxCNC.cff" beforeDir="false" afterPath="$PROJECT_DIR$/Other_files/Plasma_Oxygen_for_LinuxCNC.cff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +218,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680868836487</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="added postprocessor for CAM">
+      <created>1680869245962</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680869245962</updated>
+    </task>
+    <task id="LOCAL-00024" summary="corrected probe input pin">
+      <created>1680876230498</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680876230498</updated>
+    </task>
+    <task id="LOCAL-00025" summary="all complite.&#10;start debugging">
+      <created>1680880995999</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1680880995999</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +270,8 @@
     <MESSAGE value="rebuilt the panel funcion that sets the given coordinates along the x and y axes" />
     <MESSAGE value="added tooltip-text for widgets" />
     <MESSAGE value="added postprocessor for CAM" />
-    <option name="LAST_COMMIT_MESSAGE" value="added postprocessor for CAM" />
+    <MESSAGE value="corrected probe input pin" />
+    <MESSAGE value="all complite.&#10;start debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="all complite.&#10;start debugging" />
   </component>
 </project>
