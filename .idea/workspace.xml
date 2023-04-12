@@ -9,7 +9,9 @@
   <component name="ChangeListManager">
     <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="all complite.&#10;start debugging">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linuxcnc.var" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/linuxcnc.var.bak" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macros/plasma_start.ngc" beforeDir="false" afterPath="$PROJECT_DIR$/macros/plasma_start.ngc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +41,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/ddd/Desktop/plasma_lpt/Other_files",
+    "last_opened_file_path": "/home/ddd/Desktop/iddqd",
     "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
