@@ -18,16 +18,16 @@ addf arc_ok_comp servo-thread
 #net oxygen_mode_off     <= halui.mdi-command-11         <= thctab.hal_btn_oxygen_mode_off
 #net go_to_end              halui.mdi-command-12         <= thctab.go_to_end
 
-#net probe-out           => thctab.led_probe-in
-#net spindle-enable      => thctab.led_spindle-on
+net probe-out           => thctab.led_probe-in
+net spindle-enable      => thctab.led_spindle-on
 
 net deb-arc-ok-out      => arc_ok_comp.in1
 net arc_ok              <= arc_ok_comp.out              => thctab.led_ark-ok
 net thc-enable          => thctab.led_thc_enable
 #net plasma              => thctab.hal_led_plasma
 #net oxygen              => thctab.hal_led_oxygen
-#net vel-tol             <= thctab.vel-tol
-#net cor-vel             <= thctab.cor-vel
+net vel-tol             <= thctab.vel_tol
+net cor-vel             <= thctab.cor_vel
 
 net oxthcu              <= hotkeys.ohc_up               => ahc.oxtorch-up
 net oxthcd              <= hotkeys.ohc_down             => ahc.oxtorch-down

@@ -1,5 +1,5 @@
 O<oxy_stop> SUB
-#<1> = #<_hal[THCTAB.safe-z]>
+#<1> = #<_hal[thctab.safe_z]>
 
 G91
 
