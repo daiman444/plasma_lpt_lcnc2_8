@@ -7,12 +7,7 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="all complite.&#10;start debugging">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var.bak" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/macros/plasma_start.ngc" beforeDir="false" afterPath="$PROJECT_DIR$/macros/plasma_start.ngc" afterDir="false" />
-    </list>
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="minor fixes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +36,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/home/ddd/Desktop/iddqd",
+    "last_opened_file_path": "/home/ddd/Desktop/plasma_lpt",
     "settings.editor.selected.configurable": "preferences.fileTypes"
   }
 }]]></component>
@@ -241,7 +236,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680880995999</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="minor fixes">
+      <created>1681390731843</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1681390731843</updated>
+    </task>
+    <task id="LOCAL-00027" summary="minor fixes">
+      <created>1681392510162</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1681392510162</updated>
+    </task>
+    <task id="LOCAL-00028" summary="minor fixes">
+      <created>1681392518022</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1681392518022</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -274,6 +290,7 @@
     <MESSAGE value="added postprocessor for CAM" />
     <MESSAGE value="corrected probe input pin" />
     <MESSAGE value="all complite.&#10;start debugging" />
-    <option name="LAST_COMMIT_MESSAGE" value="all complite.&#10;start debugging" />
+    <MESSAGE value="minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
   </component>
 </project>

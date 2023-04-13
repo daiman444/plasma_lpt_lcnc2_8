@@ -17,13 +17,12 @@ net thcu                    parport.0.pin-12-in-not
 net thcd                    parport.0.pin-13-in-not
 
 # debounce arc_ok
-net deb-thc2-arc-ok-in      debounce.1.0.in                 parport.0.pin-11-in
+net deb-thc2-arc-ok-in      debounce.1.0.in                 #parport.0.pin-11-in
 net deb-arc-ok-out          debounce.1.0.out
 setp                        debounce.1.delay                5
-###
 
 #пины режима резки
-net plasma                  ahc.plasma                      motion.digital-out-01 
+net plasma                  ahc.plasma                      motion.digital-out-01
 net oxygen                  ahc.oxygen                      motion.digital-out-02
 net thcu                    ahc.torch-up
 net thcd                    ahc.torch-down
