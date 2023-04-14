@@ -17,7 +17,7 @@ net thcu                    parport.0.pin-12-in-not
 net thcd                    parport.0.pin-13-in-not
 
 # debounce arc_ok
-net deb-thc2-arc-ok-in      debounce.1.0.in                 #parport.0.pin-11-in
+net deb-thc2-arc-ok-in      debounce.1.0.in                 parport.0.pin-11-in-not
 net deb-arc-ok-out          debounce.1.0.out
 setp                        debounce.1.delay                5
 
@@ -26,7 +26,7 @@ net plasma                  ahc.plasma                      motion.digital-out-0
 net oxygen                  ahc.oxygen                      motion.digital-out-02
 net thcu                    ahc.torch-up
 net thcd                    ahc.torch-down
-net deb-arc-ok-out          ahc.arc-ok
+net deb-arc-ok-out          ahc.arc-ok						motion.digital-in-00
 net current-vel             ahc.current-vel                 motion.current-vel
 net requested-vel           ahc.requested-vel               motion.requested-vel
 net spindle-enable          ahc.torch-on
