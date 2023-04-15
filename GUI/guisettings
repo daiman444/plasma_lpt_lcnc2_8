@@ -1,6 +1,7 @@
 #maximize window
-#root_window.attributes("-zoomed",1)
+root_window.attributes("-zoomed",1)
 commands.set_view_z2()
+commands.set_view_z()
 
 root_window.tk.call('pack','forget','.pane.top.tabs.fmanual.spindlef.ccw')
 #root_window.tk.call('pack','forget','.pane.top.tabs.fmanual.spindlef.cw')
