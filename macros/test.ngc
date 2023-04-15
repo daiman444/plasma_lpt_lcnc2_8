@@ -1,0 +1,12 @@
+O<test> SUB
+#<param1> = #1
+#<param2> = #3
+#<param3> = #2
+
+(DEBUG, parameter 1 is [#<param1>])
+(DEBUG, parameter 2 is [#<param2>])
+(DEBUG, parameter 3 is [#<param3>])
+
+O<test> ENDSUB
+
+M2
