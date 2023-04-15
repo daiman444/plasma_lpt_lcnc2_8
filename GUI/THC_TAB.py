@@ -102,7 +102,8 @@ class PlasmaClass:
         self.list_btns_set_coord = ['gotozero', 'zero-xyz', 'zero-x',
                                     'zero-y', 'zero-z', 'gotoend',
                                     'set_coord_x', 'set_coord_y', 'btn_feed_minus',
-                                    'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y']
+                                    'btn_feed_plus', 'txt_set_coord_x', 'txt_set_coord_y',
+                                    ]
 
         # buttons reset coordinates
         self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
@@ -139,7 +140,8 @@ class PlasmaClass:
         # push-buttons list for change values:
         self.widgets_list = ['cor_vel', 'vel_tol', 'pierce_hght',
                              'jump_hght', 'pierce_del', 'cut_hght',
-                             'stop_del', 'safe_z', 'z_speed', ]
+                             'stop_del', 'safe_z', 'z_speed',
+                             ]
 
         # for a simplified call to dictionary values, we will declare a variable
         # referring to the dictionary:
@@ -174,27 +176,38 @@ class PlasmaClass:
                                 'txt_set_coord_y', 'tb_plasma', 'tb_ox',
                                 ]
 
+# TODO модифицировать метод и его вызовы
+    def mode_change(self, stat):
+        self.stat.poll()
+        if stat == 'auto' or stat == 'mdi':
+            for i in self.widgets_in_mode:
+                self.b_g_o(i).set_sensitive(False)
+        if stat == 'manual':
+            for i in self.widgets_in_mode:
+                self.b_g_o(i).set_sensitive(True)
+
+
     def go_to_zero(self, w, d=None):
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi(d)
-        self.command.wait_complete()
+        self.command.wait_complete([180])
         self.command.mode(linuxcnc.MODE_MANUAL)
+        self.mode_change(stat='manual')
 
     def gotoend(self, w, d=None):
         x_limit = self.inifile.find('AXIS_X', 'MIN_LIMIT')
         y_limit = self.inifile.find('AXIS_Y', 'MAX_LIMIT')
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi('G53 G00 Z0 ')
-        self.command.wait_complete()
         self.command.mdi('G53 X{0} Y{1}'.format(x_limit, y_limit))
-        self.command.wait_complete()
+        self.command.wait_complete([180])
         self.command.mode(linuxcnc.MODE_MANUAL)
+
 
     def setcoord(self, widget, data=None):
         coord = self.builder.get_object('txt_set_coord_' + data).get_text()
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi('G92{0}{1}'.format(data, float(coord)))
-        self.command.wait_complete()
         self.command.mode(linuxcnc.MODE_MANUAL)
 
     def feed_direction_change(self, widget, value):
@@ -252,20 +265,11 @@ class PlasmaClass:
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi(mcode + 'P0')
         self.command.mdi(mcode + p)
-        self.command.wait_complete()
         self.command.mode(linuxcnc.MODE_MANUAL)
 
     def all_homed(self, stat):
         if stat == 'homed':
             self.b_g_o('table1').set_sensitive(True)
-
-    def mode_change(self, stat):
-        if stat == 'auto' or stat == 'mdi':
-            for i in self.widgets_in_mode:
-                self.b_g_o(i).set_sensitive(False)
-        if stat == 'manual':
-            for i in self.widgets_in_mode:
-                self.b_g_o(i).set_sensitive(True)
 
 
 def get_handlers(halcomp, builder, useropts):
