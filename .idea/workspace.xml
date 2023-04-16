@@ -7,12 +7,8 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="minor fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.glade" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.glade" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var.bak" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var.bak" afterDir="false" />
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="finish">
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +273,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681577806943</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="finish">
+      <created>1681619526375</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1681619526375</updated>
+    </task>
+    <task id="LOCAL-00032" summary="finish">
+      <created>1681619530159</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1681619530159</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -311,6 +321,7 @@
     <MESSAGE value="corrected probe input pin" />
     <MESSAGE value="all complite.&#10;start debugging" />
     <MESSAGE value="minor fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor fixes" />
+    <MESSAGE value="finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="finish" />
   </component>
 </project>
