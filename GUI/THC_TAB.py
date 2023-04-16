@@ -19,6 +19,7 @@ COMMANDS = linuxcnc.command()
 INIPATH = os.environ.get('INI_FILE_NAME', '/dev/null')
 
 
+
 class PlasmaClass:
     def __init__(self, halcomp, builder, useropts):
         self.useropts = useropts
@@ -107,10 +108,10 @@ class PlasmaClass:
 
         # buttons reset coordinates
         self.builder.get_object('gotozero').connect('pressed', self.go_to_zero, 'G90 G0 Z30 X0 Y0 F800')
-        self.builder.get_object('zero-xyz').connect('pressed', self.go_to_zero, 'G92 X0 Y0 Z0')
-        self.builder.get_object('zero-x').connect('pressed', self.go_to_zero, 'G92 X0')
-        self.builder.get_object('zero-y').connect('pressed', self.go_to_zero, 'G92 Y0')
-        self.builder.get_object('zero-z').connect('pressed', self.go_to_zero, 'G92 Z0')
+        self.builder.get_object('zero-xyz').connect('pressed', self.m_d_i, 'G92 X0 Y0 Z0')
+        self.builder.get_object('zero-x').connect('pressed', self.m_d_i, 'G92 X0')
+        self.builder.get_object('zero-y').connect('pressed', self.m_d_i, 'G92 Y0')
+        self.builder.get_object('zero-z').connect('pressed', self.m_d_i, 'G92 Z0')
         self.builder.get_object('gotoend').connect('pressed', self.gotoend)
         self.builder.get_object('set_coord_x').connect('pressed', self.setcoord, 'x')
         self.builder.get_object('set_coord_y').connect('pressed', self.setcoord, 'y')
@@ -176,23 +177,28 @@ class PlasmaClass:
                                 'txt_set_coord_y', 'tb_plasma', 'tb_ox',
                                 ]
 
-# TODO модифицировать метод и его вызовы
     def mode_change(self, stat):
-        self.stat.poll()
-        if stat == 'auto' or stat == 'mdi':
+        STATUS.poll()
+        mode = STATUS.task_mode
+        self.b_g_o('label4').set_label("%s" % mode)
+        if mode == linuxcnc.MODE_MDI or mode == linuxcnc.MODE_AUTO:
             for i in self.widgets_in_mode:
                 self.b_g_o(i).set_sensitive(False)
-        if stat == 'manual':
+        if mode == linuxcnc.MODE_MANUAL:
             for i in self.widgets_in_mode:
                 self.b_g_o(i).set_sensitive(True)
 
+    def m_d_i(self, w, mdi=None):
+        self.command.mode(linuxcnc.MODE_MDI)
+        self.command.mdi(mdi)
+        self.command.wait_complete()
+        self.command.mode(linuxcnc.MODE_MANUAL)
 
     def go_to_zero(self, w, d=None):
         self.command.mode(linuxcnc.MODE_MDI)
         self.command.mdi(d)
         self.command.wait_complete([180])
         self.command.mode(linuxcnc.MODE_MANUAL)
-        self.mode_change(stat='manual')
 
     def gotoend(self, w, d=None):
         x_limit = self.inifile.find('AXIS_X', 'MIN_LIMIT')
@@ -202,7 +208,6 @@ class PlasmaClass:
         self.command.mdi('G53 X{0} Y{1}'.format(x_limit, y_limit))
         self.command.wait_complete([180])
         self.command.mode(linuxcnc.MODE_MANUAL)
-
 
     def setcoord(self, widget, data=None):
         coord = self.builder.get_object('txt_set_coord_' + data).get_text()
