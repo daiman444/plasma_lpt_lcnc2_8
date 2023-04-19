@@ -1,6 +1,6 @@
 O<plasma_stop> SUB
-#<1> = #<_hal[THCTAB.safe-z]>
-#<2> = #<_hal[THCTAB.stop-del]>
+#<1> = #<_hal[THCTAB.safe_z]>
+#<2> = #<_hal[THCTAB.stop_del]>
 
 
 

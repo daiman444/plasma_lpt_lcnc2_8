@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BookmarksViewState">
+    <option name="proportionPopup" value="0.67772514" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="Merge remote-tracking branch 'origin/master'" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="03e08a84f85fad0404815394d3a74bef740d9802" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
+  </component>
+  <component name="ProjectId" id="2NMyBt0y5dFyhy1XOEowEozaCeO" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/ddd/Desktop/plasma_lpt&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.fileTypes&quot;
+  }
+}</component>
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <console-settings>
+        <option name="useSoftWraps" value="true" />
+      </console-settings>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Other_files" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="" />
+      <created>1679488115468</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679488115468</updated>
+    </task>
+    <task id="LOCAL-00001" summary="some">
+      <created>1679494893135</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1679494893135</updated>
+    </task>
+    <task id="LOCAL-00002" summary="oh fuck eeeee!!!&#10;value management is possible through one method from the keyboard and from the GUI!!!&#10;TODO &#10;you need to structure the names of widgets and pins to apply the method to the maximum for all values through lists or dictionaries!">
+      <created>1679500379089</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1679500379089</updated>
+    </task>
+    <task id="LOCAL-00003" summary="rebuild handler file for glade">
+      <created>1679570763103</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1679570763104</updated>
+    </task>
+    <task id="LOCAL-00004" summary="methods for mdi push_buttons is done">
+      <created>1679581182371</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1679581182371</updated>
+    </task>
+    <task id="LOCAL-00005" summary="the method for changing the sensitivity of widgets when &quot;all-homed&quot; is ready.">
+      <created>1679587332372</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1679587332372</updated>
+    </task>
+    <task id="LOCAL-00006" summary="the method for changing the sensitivity of widgets when &quot;all-homed&quot; is ready.">
+      <created>1679587831931</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1679587831931</updated>
+    </task>
+    <task id="LOCAL-00007" summary="some">
+      <created>1679815598522</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1679815598522</updated>
+    </task>
+    <task id="LOCAL-00008" summary="some">
+      <created>1679818263840</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1679818263840</updated>
+    </task>
+    <task id="LOCAL-00009" summary="feed direction method added">
+      <created>1679840519127</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1679840519127</updated>
+    </task>
+    <task id="LOCAL-00010" summary="&quot;widgets value change&quot; method added">
+      <created>1679847011288</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1679847011288</updated>
+    </task>
+    <task id="LOCAL-00011" summary="&quot;widgets value change&quot; method added">
+      <created>1679932946493</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1679932946493</updated>
+    </task>
+    <task id="LOCAL-00012" summary="declaring widgets and method for them ready">
+      <created>1679938960013</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1679938960013</updated>
+    </task>
+    <task id="LOCAL-00013" summary="added TODO">
+      <created>1679939215221</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1679939215221</updated>
+    </task>
+    <task id="LOCAL-00014" summary="pb_buttons: added TODO">
+      <created>1680016857298</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680016857298</updated>
+    </task>
+    <task id="LOCAL-00015" summary="regress to armatura ural">
+      <created>1680623041156</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1680623041156</updated>
+    </task>
+    <task id="LOCAL-00016" summary="adjusting macros for the new panel handler">
+      <created>1680664986733</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1680664986733</updated>
+    </task>
+    <task id="LOCAL-00017" summary="some">
+      <created>1680715479956</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1680715479956</updated>
+    </task>
+    <task id="LOCAL-00018" summary="some">
+      <created>1680715508043</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1680715508043</updated>
+    </task>
+    <task id="LOCAL-00019" summary="rebuilt the panel funcion that sets the given coordinates along the x and y axes">
+      <created>1680792727578</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1680792727578</updated>
+    </task>
+    <task id="LOCAL-00020" summary="rebuilt the panel funcion that sets the given coordinates along the x and y axes">
+      <created>1680792786105</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1680792786105</updated>
+    </task>
+    <task id="LOCAL-00021" summary="added tooltip-text for widgets">
+      <created>1680798457132</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1680798457132</updated>
+    </task>
+    <task id="LOCAL-00022" summary="added postprocessor for CAM">
+      <created>1680868836487</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1680868836487</updated>
+    </task>
+    <task id="LOCAL-00023" summary="added postprocessor for CAM">
+      <created>1680869245962</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680869245962</updated>
+    </task>
+    <task id="LOCAL-00024" summary="corrected probe input pin">
+      <created>1680876230498</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680876230498</updated>
+    </task>
+    <task id="LOCAL-00025" summary="all complite.&#10;start debugging">
+      <created>1680880995999</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1680880995999</updated>
+    </task>
+    <task id="LOCAL-00026" summary="minor fixes">
+      <created>1681390731843</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1681390731843</updated>
+    </task>
+    <task id="LOCAL-00027" summary="minor fixes">
+      <created>1681392510162</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1681392510162</updated>
+    </task>
+    <task id="LOCAL-00028" summary="minor fixes">
+      <created>1681392518022</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1681392518022</updated>
+    </task>
+    <task id="LOCAL-00029" summary="minor fixes">
+      <created>1681392615151</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1681392615151</updated>
+    </task>
+    <task id="LOCAL-00030" summary="minor fixes">
+      <created>1681577806943</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1681577806943</updated>
+    </task>
+    <task id="LOCAL-00031" summary="finish">
+      <created>1681619526375</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1681619526375</updated>
+    </task>
+    <task id="LOCAL-00032" summary="finish">
+      <created>1681619530159</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1681619530159</updated>
+    </task>
+    <task id="LOCAL-00033" summary="finish">
+      <created>1681619609357</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1681619609357</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Merge remote-tracking branch 'origin/master'">
+      <created>1681619674404</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1681619674405</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="oh fuck eeeee!!!&#10;value management is possible through one method from the keyboard and from the GUI!!!&#10;TODO &#10;you need to structure the names of widgets and pins to apply the method to the maximum for all values through lists or dictionaries!" />
+    <MESSAGE value="rebuild handler file for glade" />
+    <MESSAGE value="methods for mdi push_buttons is done" />
+    <MESSAGE value="the method for changing the sensitivity of widgets when &quot;all-homed&quot; is ready." />
+    <MESSAGE value="feed direction method added" />
+    <MESSAGE value="&quot;widgets value change&quot; method added" />
+    <MESSAGE value="declaring widgets as a list" />
+    <MESSAGE value="declaring widgets and method for them ready" />
+    <MESSAGE value="added TODO" />
+    <MESSAGE value="pb_buttons: added TODO" />
+    <MESSAGE value="regress to armatura ural" />
+    <MESSAGE value="adjusting macros for the new panel handler" />
+    <MESSAGE value="some" />
+    <MESSAGE value="rebuilt the panel funcion that sets the given coordinates along the x and y axes" />
+    <MESSAGE value="added tooltip-text for widgets" />
+    <MESSAGE value="added postprocessor for CAM" />
+    <MESSAGE value="corrected probe input pin" />
+    <MESSAGE value="all complite.&#10;start debugging" />
+    <MESSAGE value="minor fixes" />
+    <MESSAGE value="finish" />
+    <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
+  </component>
+</project>
