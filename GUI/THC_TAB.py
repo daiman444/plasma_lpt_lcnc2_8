@@ -6,6 +6,7 @@ import hal_glib  # needed to make our own hal pins
 import hal  # needed to make our own hal pins
 import gtk
 import linuxcnc
+import pango
 
 from gladevcp.persistence import IniFile  # we use this one to save the states of the widgets on shut down and restart
 from gladevcp.persistence import widget_defaults
@@ -131,8 +132,8 @@ class PlasmaClass:
         self.btn_feed_dir_plus.set_sensitive(False)
 
         self.btn_feed_dir_minus = builder.get_object('btn_feed_minus')
-        self.btn_feed_dir_minus.set_sensitive(True)
         self.btn_feed_dir_minus.connect('pressed', self.feed_direction_change, -1)
+        self.btn_feed_dir_minus.set_sensitive(True)
 
         self.lbl_feed_dir = self.builder.get_object('lbl_feed_dir')
         self.lbl_feed_dir.set_label('FWD')
