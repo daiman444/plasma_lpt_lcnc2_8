@@ -2,10 +2,10 @@
 # This file will not be overwritten when you run PNCconf again
 
 loadrt debounce cfg=1,1,2
+loadrt ahc
+
 addf debounce.0 servo-thread
 addf debounce.1 servo-thread
-
-loadrt ahc
 addf ahc servo-thread
 
 # debounce probe

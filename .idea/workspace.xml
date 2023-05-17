@@ -7,7 +7,9 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="commented home search" />
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="added THC section">
+      <change beforePath="$PROJECT_DIR$/HAL/custom.hal" beforeDir="false" afterPath="$PROJECT_DIR$/HAL/custom.hal" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,18 +30,22 @@
     <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2NMyBt0y5dFyhy1XOEowEozaCeO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/ddd/Desktop/plasma_lpt&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/ddd/Desktop/plasma_lpt",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings>
@@ -320,7 +326,28 @@
       <option name="project" value="LOCAL" />
       <updated>1684338696541</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="added gitignore">
+      <created>1684339100997</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1684339100997</updated>
+    </task>
+    <task id="LOCAL-00039" summary="added THC section">
+      <created>1684339111584</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1684339111584</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added THC section">
+      <created>1684339133392</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1684339133392</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -335,6 +362,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="oh fuck eeeee!!!&#10;value management is possible through one method from the keyboard and from the GUI!!!&#10;TODO &#10;you need to structure the names of widgets and pins to apply the method to the maximum for all values through lists or dictionaries!" />
     <MESSAGE value="rebuild handler file for glade" />
     <MESSAGE value="methods for mdi push_buttons is done" />
@@ -358,6 +386,8 @@
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
     <MESSAGE value="hhh" />
     <MESSAGE value="commented home search" />
-    <option name="LAST_COMMIT_MESSAGE" value="commented home search" />
+    <MESSAGE value="added gitignore" />
+    <MESSAGE value="added THC section" />
+    <option name="LAST_COMMIT_MESSAGE" value="added THC section" />
   </component>
 </project>
