@@ -77,10 +77,18 @@ class PlasmaClass:
                                         "vsetupmax": 130,
                                         "vsetupmin": 120,
                                         "vsetupincr": 1,
-                                        "freq_scaleval": 125.0,
-                                        "freq_scalemax": 130,
-                                        "freq_scalemin": 120,
-                                        "freq_scaleincr": 1,
+                                        "freq_scaleval": 0.00226,
+                                        "freq_scalemax": 1,
+                                        "freq_scalemin": 0,
+                                        "freq_scaleincr": 0.00001,
+                                        "arc_ok_minval": 80.0,
+                                        "arc_ok_minmax": 130,
+                                        "arc_ok_minmin": 80,
+                                        "arc_ok_minincr": 5,
+                                        "arc_ok_maxval": 170.0,
+                                        "arc_ok_maxmax": 170,
+                                        "arc_ok_maxmin": 120,
+                                        "arc_ok_maxincr": 5,
 
                                         },
                          IniFile.widgets: widget_defaults(select_widgets([self.builder.get_object("hal-btn-THC")],
@@ -144,7 +152,8 @@ class PlasmaClass:
         self.widgets_list = ['cor_vel', 'vel_tol', 'pierce_hght',
                              'jump_hght', 'pierce_del', 'cut_hght',
                              'stop_del', 'safe_z', 'z_speed',
-                             'vsetup', 'freq_scale',
+                             'vsetup', 'freq_scale', 'arc_ok_min',
+                             'arc_ok_max',
                              ]
 
         # for a simplified call to dictionary values, we will declare a variable
@@ -248,8 +257,12 @@ class PlasmaClass:
         else:
             self.b_g_o('btn_' + name + '_plus').set_sensitive(True)
             self.b_g_o('btn_' + name + '_minus').set_sensitive(True)
-        self.b_g_o('lbl_' + name).set_label('%s' % round(self.defs[name + 'val'], 1))
-        self.halcomp[name] = round(self.defs[name + 'val'], 1)
+        if name == 'freq_scale':
+            self.b_g_o('lbl_' + name).set_label('%s' % self.defs[name + 'val'])
+            self.halcomp[name] = self.defs[name + 'val']
+        else:
+            self.b_g_o('lbl_' + name).set_label('%s' % round(self.defs[name + 'val'], 1))
+            self.halcomp[name] = round(self.defs[name + 'val'], 1)
 
     def pb_changes(self, w, d=None):
         if w.get_active() == True and d == 'plasma':

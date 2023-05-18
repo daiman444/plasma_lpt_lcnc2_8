@@ -7,8 +7,7 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="connected hotkeys isttead thc">
-      <change afterPath="$PROJECT_DIR$/THC_TAB.var.BAD" afterDir="false" />
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="added widgets for thc with freq">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.py" afterDir="false" />
     </list>
@@ -391,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684427352126</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="added widgets for thc with freq">
+      <created>1684429743571</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1684429743571</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -407,7 +413,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feed direction method added" />
     <MESSAGE value="&quot;widgets value change&quot; method added" />
     <MESSAGE value="declaring widgets as a list" />
     <MESSAGE value="declaring widgets and method for them ready" />
@@ -432,6 +437,7 @@
     <MESSAGE value="added viewport" />
     <MESSAGE value="homming commented" />
     <MESSAGE value="connected hotkeys isttead thc" />
-    <option name="LAST_COMMIT_MESSAGE" value="connected hotkeys isttead thc" />
+    <MESSAGE value="added widgets for thc with freq" />
+    <option name="LAST_COMMIT_MESSAGE" value="added widgets for thc with freq" />
   </component>
 </project>
