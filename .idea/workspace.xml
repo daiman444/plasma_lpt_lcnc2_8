@@ -7,11 +7,8 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="Merge remote-tracking branch 'origin/master'">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GUI/THC_TAB.py" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/THC_TAB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var.bak" beforeDir="false" afterPath="$PROJECT_DIR$/linuxcnc.var.bak" afterDir="false" />
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="added THC section">
+      <change beforePath="$PROJECT_DIR$/HAL/custom.hal" beforeDir="false" afterPath="$PROJECT_DIR$/HAL/custom.hal" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +18,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="03e08a84f85fad0404815394d3a74bef740d9802" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -33,12 +30,16 @@
     <option name="showPreview" value="true" />
   </component>
   <component name="ProjectId" id="2NMyBt0y5dFyhy1XOEowEozaCeO" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "last_opened_file_path": "/home/ddd/Desktop/plasma_lpt",
@@ -304,7 +305,49 @@
       <option name="project" value="LOCAL" />
       <updated>1681619674405</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="hhh">
+      <created>1682356963646</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1682356963646</updated>
+    </task>
+    <task id="LOCAL-00036" summary="commented home search">
+      <created>1684338668549</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1684338668549</updated>
+    </task>
+    <task id="LOCAL-00037" summary="commented home search">
+      <created>1684338696541</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1684338696541</updated>
+    </task>
+    <task id="LOCAL-00038" summary="added gitignore">
+      <created>1684339100997</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1684339100997</updated>
+    </task>
+    <task id="LOCAL-00039" summary="added THC section">
+      <created>1684339111584</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1684339111584</updated>
+    </task>
+    <task id="LOCAL-00040" summary="added THC section">
+      <created>1684339133392</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1684339133392</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,6 +362,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="oh fuck eeeee!!!&#10;value management is possible through one method from the keyboard and from the GUI!!!&#10;TODO &#10;you need to structure the names of widgets and pins to apply the method to the maximum for all values through lists or dictionaries!" />
     <MESSAGE value="rebuild handler file for glade" />
     <MESSAGE value="methods for mdi push_buttons is done" />
@@ -340,6 +384,10 @@
     <MESSAGE value="minor fixes" />
     <MESSAGE value="finish" />
     <MESSAGE value="Merge remote-tracking branch 'origin/master'" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master'" />
+    <MESSAGE value="hhh" />
+    <MESSAGE value="commented home search" />
+    <MESSAGE value="added gitignore" />
+    <MESSAGE value="added THC section" />
+    <option name="LAST_COMMIT_MESSAGE" value="added THC section" />
   </component>
 </project>

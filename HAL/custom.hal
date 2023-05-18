@@ -2,8 +2,11 @@
 # This file will not be overwritten when you run PNCconf again
 
 loadrt debounce cfg=1,1,2
+loadrt ahc
+
 addf debounce.0 servo-thread
 addf debounce.1 servo-thread
+<<<<<<< HEAD
 
 loadrt encoder num_chan=1
 addf encoder.update-counters base-thread
@@ -13,6 +16,8 @@ setp encoder.0.counter-mode 1
 net freq					parport.0.pin-13-in-not			encoder.0.phase-A
 
 loadrt ahc
+=======
+>>>>>>> 446ee696d7bac9aa15d79d1eefcf3fa79407b815
 addf ahc servo-thread
 
 # debounce probe

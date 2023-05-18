@@ -1,0 +1,5 @@
+*.pyc
+*.var
+*.var.bak
+*.pref
+
