@@ -3,22 +3,17 @@
 
 loadrt debounce cfg=1,1,2
 loadrt ahc
+loadrt encoder num_chan=1
 
 addf debounce.0 servo-thread
 addf debounce.1 servo-thread
-<<<<<<< HEAD
-
-loadrt encoder num_chan=1
+addf ahc servo-thread
 addf encoder.update-counters base-thread
 addf encoder.capture-position servo-thread
+
 #setp encoder.0.position-scale 100.000000
 setp encoder.0.counter-mode 1
 net freq					parport.0.pin-13-in-not			encoder.0.phase-A
-
-loadrt ahc
-=======
->>>>>>> 446ee696d7bac9aa15d79d1eefcf3fa79407b815
-addf ahc servo-thread
 
 # debounce probe
 net probe-in                debounce.0.0.in                 parport.0.pin-15-in-not
