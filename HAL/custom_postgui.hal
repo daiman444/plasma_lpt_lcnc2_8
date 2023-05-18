@@ -13,6 +13,7 @@ net thc-enable           => thctab.led_thc_enable
 #net oxygen              => thctab.hal_led_oxygen
 net vel-tol              <= thctab.vel_tol
 net cor-vel              <= thctab.cor_vel
+#net volts                   thctab.volts-value                   thc2.volts
 
 
 

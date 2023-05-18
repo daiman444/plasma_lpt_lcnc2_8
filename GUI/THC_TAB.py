@@ -147,6 +147,8 @@ class PlasmaClass:
         self.lbl_feed_dir = self.builder.get_object('lbl_feed_dir')
         self.lbl_feed_dir.set_label('FWD')
 
+
+
         # declaring widgets as a list.
         # push-buttons list for change values:
         self.widgets_list = ['cor_vel', 'vel_tol', 'pierce_hght',
@@ -188,6 +190,7 @@ class PlasmaClass:
                                 'set_coord_x', 'txt_set_coord_x', 'set_coord_y',
                                 'txt_set_coord_y', 'tb_plasma', 'tb_ox',
                                 ]
+
 
     def mode_change(self, stat):
         STATUS.poll()
