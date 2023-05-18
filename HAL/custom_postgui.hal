@@ -19,6 +19,10 @@ net cor-vel              <= thctab.cor_vel
 #net oxtorch-on           <= hotkeys.ohc_torch            => arc_ok_comp.in0
 #net oxtorch-on           => ahc.oxtorch-on               => motion.digital-in-09
 
+net thcu					hotkeys.ohc_up
+net thcd					hotkeys.ohc_down
+net arkok					ahc.arc-ok						hotkeys.ohc_torch
+
 net feed-plus            <= hotkeys.feed_plus            => thctab.feed-dir-plus
 net feed-minus           <= hotkeys.feed_minus           => thctab.feed-dir-minus
 net adaptive_feed        => motion.adaptive-feed         <= thctab.feed-dir
