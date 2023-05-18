@@ -73,14 +73,15 @@ class PlasmaClass:
                                         "feed_directmax": 1,
                                         "feed_directmin": -1,
                                         "feed_directincr": 1,
-                                        "volts_reqval": 125,
-                                        "volts_reqmax": 130,
-                                        "volts_reqmin": 120,
-                                        "volts_reqincr": 1,
-                                        "hall_valueval": 125,
-                                        "hall_valuemax": 130,
-                                        "hall_valuemin": 120,
-                                        "hall_valueincr": 1,
+                                        "vsetupval": 125.0,
+                                        "vsetupmax": 130,
+                                        "vsetupmin": 120,
+                                        "vsetupincr": 1,
+                                        "freq_scaleval": 125.0,
+                                        "freq_scalemax": 130,
+                                        "freq_scalemin": 120,
+                                        "freq_scaleincr": 1,
+
                                         },
                          IniFile.widgets: widget_defaults(select_widgets([self.builder.get_object("hal-btn-THC")],
                                                                          hal_only=True, output_only=True)),
@@ -143,6 +144,7 @@ class PlasmaClass:
         self.widgets_list = ['cor_vel', 'vel_tol', 'pierce_hght',
                              'jump_hght', 'pierce_del', 'cut_hght',
                              'stop_del', 'safe_z', 'z_speed',
+                             'vsetup', 'freq_scale',
                              ]
 
         # for a simplified call to dictionary values, we will declare a variable
