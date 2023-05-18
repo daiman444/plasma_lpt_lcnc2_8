@@ -1287,7 +1287,6 @@ G92 Z0
         </child>
         <child>
           <object class="GtkExpander" id="expander1">
-            <property name="height_request">150</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <child>
