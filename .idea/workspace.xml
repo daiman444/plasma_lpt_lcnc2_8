@@ -7,13 +7,7 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="minor adjustments">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plasma_Oxygen.pref" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/THC_TAB.var" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/linuxcnc.var.bak" beforeDir="false" />
-    </list>
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="connected hotkeys isttead thc" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -358,7 +352,35 @@
       <option name="project" value="LOCAL" />
       <updated>1684339269902</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="some">
+      <created>1684424030622</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1684424030622</updated>
+    </task>
+    <task id="LOCAL-00043" summary="added viewport">
+      <created>1684424042855</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1684424042855</updated>
+    </task>
+    <task id="LOCAL-00044" summary="homming commented">
+      <created>1684424255994</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1684424255994</updated>
+    </task>
+    <task id="LOCAL-00045" summary="connected hotkeys isttead thc">
+      <created>1684427299595</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1684427299595</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -374,9 +396,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="rebuild handler file for glade" />
-    <MESSAGE value="methods for mdi push_buttons is done" />
-    <MESSAGE value="the method for changing the sensitivity of widgets when &quot;all-homed&quot; is ready." />
     <MESSAGE value="feed direction method added" />
     <MESSAGE value="&quot;widgets value change&quot; method added" />
     <MESSAGE value="declaring widgets as a list" />
@@ -385,7 +404,6 @@
     <MESSAGE value="pb_buttons: added TODO" />
     <MESSAGE value="regress to armatura ural" />
     <MESSAGE value="adjusting macros for the new panel handler" />
-    <MESSAGE value="some" />
     <MESSAGE value="rebuilt the panel funcion that sets the given coordinates along the x and y axes" />
     <MESSAGE value="added tooltip-text for widgets" />
     <MESSAGE value="added postprocessor for CAM" />
@@ -399,6 +417,10 @@
     <MESSAGE value="added gitignore" />
     <MESSAGE value="added THC section" />
     <MESSAGE value="minor adjustments" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor adjustments" />
+    <MESSAGE value="some" />
+    <MESSAGE value="added viewport" />
+    <MESSAGE value="homming commented" />
+    <MESSAGE value="connected hotkeys isttead thc" />
+    <option name="LAST_COMMIT_MESSAGE" value="connected hotkeys isttead thc" />
   </component>
 </project>

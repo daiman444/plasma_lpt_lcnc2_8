@@ -1,27 +1,29 @@
 # Include your custom_postgui HAL commands here
 # This file will not be overwritten when you run PNCconf again
-loadrt xor2 names=arc_ok_comp
-addf arc_ok_comp servo-thread
+#loadrt xor2 names=arc_ok_comp
+#addf arc_ok_comp servo-thread
 
 net probe-out            => thctab.led_probe-in
 net spindle-enable       => thctab.led_spindle-on
 
-net deb-arc-ok-out       => arc_ok_comp.in1
-net arc_ok               <= arc_ok_comp.out              => thctab.led_ark-ok
+#net deb-arc-ok-out       => arc_ok_comp.in1
+#net arc_ok               => thctab.led_ark-ok
 net thc-enable           => thctab.led_thc_enable
 #net plasma              => thctab.hal_led_plasma
 #net oxygen              => thctab.hal_led_oxygen
 net vel-tol              <= thctab.vel_tol
 net cor-vel              <= thctab.cor_vel
 
+
+
 #net oxthcu               <= hotkeys.ohc_up               => ahc.oxtorch-up
 #net oxthcd               <= hotkeys.ohc_down             => ahc.oxtorch-down
-#net oxtorch-on           <= hotkeys.ohc_torch            => arc_ok_comp.in0
-#net oxtorch-on           => ahc.oxtorch-on               => motion.digital-in-09
+#net oxtorch-on           <= hotkeys.ohc_torch            #=> arc_ok_comp.in0
+#net oxtorch-on           => ahc.oxtorch-on ahc.arc-ok motion.digital-in-09 motion.digital-in-00
 
-net thcu					hotkeys.ohc_up
-net thcd					hotkeys.ohc_down
-net arkok					ahc.arc-ok						hotkeys.ohc_torch
+net thcu					hotkeys.ohc_up      ahc.oxtorch-up      ahc.torch-up
+net thcd					hotkeys.ohc_down    ahc.oxtorch-down    ahc.torch-down
+net arkok					hotkeys.ohc_torch   ahc.arc-ok  motion.digital-in-09    motion.digital-in-00    thctab.led_ark-ok
 
 net feed-plus            <= hotkeys.feed_plus            => thctab.feed-dir-plus
 net feed-minus           <= hotkeys.feed_minus           => thctab.feed-dir-minus

@@ -31,8 +31,8 @@ setp                        debounce.0.delay 5
 #пины режима резки
 net plasma                  ahc.plasma                      motion.digital-out-01
 net oxygen                  ahc.oxygen                      motion.digital-out-02
-net thcu                    ahc.torch-up
-net thcd                    ahc.torch-down
+#net thcu                    ahc.torch-up
+#net thcd                    ahc.torch-down
 #net deb-arc-ok-out          ahc.arc-ok						motion.digital-in-00
 net current-vel             ahc.current-vel                 motion.current-vel
 net requested-vel           ahc.requested-vel               motion.requested-vel
@@ -44,8 +44,8 @@ net removing-offset         ahc.removing-offset
 net vel-tol                 ahc.velocity-tol
 net cor-vel                 ahc.correction-vel
 
-net spindle-enable          spindle.0.on                    parport.0.pin-17-out
-net deb-arc-ok-out          motion.digital-in-00
+net spindle-enable          spindle.0.on                    parport.0.pin-17-out    ahc.oxtorch-on
+#net deb-arc-ok-out          motion.digital-in-00
 
 unlinkp                     joint.3.motor-pos-cmd
 net zpos-cmd                joint.3.motor-pos-cmd           ahc.z-pos-in
