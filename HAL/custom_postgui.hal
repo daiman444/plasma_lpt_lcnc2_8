@@ -9,16 +9,16 @@ net spindle-enable       => thctab.led_spindle-on
 net deb-arc-ok-out       => arc_ok_comp.in1
 net arc_ok               <= arc_ok_comp.out              => thctab.led_ark-ok
 net thc-enable           => thctab.led_thc_enable
-#net plasma               => thctab.hal_led_plasma
-#net oxygen               => thctab.hal_led_oxygen
+#net plasma              => thctab.hal_led_plasma
+#net oxygen              => thctab.hal_led_oxygen
 net vel-tol              <= thctab.vel_tol
 net cor-vel              <= thctab.cor_vel
 
-net oxthcu              <= hotkeys.ohc_up               => ahc.oxtorch-up
-net oxthcd              <= hotkeys.ohc_down             => ahc.oxtorch-down
-net oxtorch-on          <= hotkeys.ohc_torch            => arc_ok_comp.in0
-net oxtorch-on          => ahc.oxtorch-on               => motion.digital-in-09
+#net oxthcu               <= hotkeys.ohc_up               => ahc.oxtorch-up
+#net oxthcd               <= hotkeys.ohc_down             => ahc.oxtorch-down
+#net oxtorch-on           <= hotkeys.ohc_torch            => arc_ok_comp.in0
+#net oxtorch-on           => ahc.oxtorch-on               => motion.digital-in-09
 
-net feed-plus           <= hotkeys.feed_plus            => thctab.feed-dir-plus
-net feed-minus          <= hotkeys.feed_minus           => thctab.feed-dir-minus
-net adaptive_feed       => motion.adaptive-feed         <= thctab.feed-dir
+net feed-plus            <= hotkeys.feed_plus            => thctab.feed-dir-plus
+net feed-minus           <= hotkeys.feed_minus           => thctab.feed-dir-minus
+net adaptive_feed        => motion.adaptive-feed         <= thctab.feed-dir

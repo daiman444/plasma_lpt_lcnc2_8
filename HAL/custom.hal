@@ -20,13 +20,13 @@ net probe-in                debounce.0.0.in                 parport.0.pin-15-in-
 net probe-out               debounce.0.0.out                motion.probe-input
 setp                        debounce.0.delay 5
 
-net thcu                    parport.0.pin-12-in-not
+#net thcu                    parport.0.pin-12-in-not
 #net thcd                    parport.0.pin-13-in-not
 
 # debounce arc_ok
-net deb-thc2-arc-ok-in      debounce.1.0.in                 parport.0.pin-11-in-not
-net deb-arc-ok-out          debounce.1.0.out
-setp                        debounce.1.delay                5
+#net deb-thc2-arc-ok-in      debounce.1.0.in                 parport.0.pin-11-in-not
+#net deb-arc-ok-out          debounce.1.0.out
+#setp                        debounce.1.delay                5
 
 #пины режима резки
 net plasma                  ahc.plasma                      motion.digital-out-01
