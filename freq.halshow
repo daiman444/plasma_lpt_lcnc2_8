@@ -1,7 +1,10 @@
-# halshow watchlist created Wed May 17 15:17:01 +06 2023
+# halshow watchlist created Fri May 19 17:32:05 +06 2023
 
 pin+encoder.0.counter-mode
 pin+encoder.0.counts
 pin+encoder.0.phase-A
 pin+encoder.0.rawcounts
 pin+encoder.0.velocity-rpm
+pin+encoder.0.velocity
+pin+encoder.0.position
+pin+volts.volts
