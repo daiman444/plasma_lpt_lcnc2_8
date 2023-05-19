@@ -19,6 +19,7 @@ net v-setup					volts.voltage-setting			thctab.vsetup
 net v-tol					volts.volts-tol					thctab.vtol
 net arcok-max				volts.arcok-max					thctab.arc_ok_max
 net arcok-min				volts.arcok-min					thctab.arc_ok_min
+net volts					volts.volts						thctab.hal_label1
 
 
 

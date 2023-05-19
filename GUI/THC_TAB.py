@@ -198,7 +198,13 @@ class PlasmaClass:
                                 'set_coord_x', 'txt_set_coord_x', 'set_coord_y',
                                 'txt_set_coord_y', 'tb_plasma', 'tb_ox',
                                 ]
-
+        #self.volts = self.hglib_pin(self.halcomp.newpin('volts', hal.HAL_FLOAT, hal.HAL_IN))
+        #self.volts.value_changed.connect(lambda data: self.set_volts(data))
+        
+    #def set_volts(self, data):
+        #self.b_g_o('lbl_volts').set_label("%s" % data)
+        
+        
 
     def mode_change(self, stat):
         STATUS.poll()
