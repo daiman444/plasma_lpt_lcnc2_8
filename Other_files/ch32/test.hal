@@ -1,0 +1,31 @@
+loadrt threads name1=srv period1=1000000000
+loadrt CH32 IP="10.10.10.10" PORT="1000" SIMULATION=0
+
+addf CH32.read srv
+addf CH32.write srv
+
+# gpio test setup
+setp CH32.0.gpio.PB4.type 1
+setp CH32.0.gpio.PA15.type 1
+
+# stepdir test setup
+setp CH32.0.stepdir.0.enable 1
+setp CH32.0.stepdir.0.dir-offset 50000 # ns
+setp CH32.0.stepdir.0.step-len 5000 # ns
+setp CH32.0.stepdir.0.max-speed 100.0 # mm/s
+setp CH32.0.stepdir.0.max-accel 1000.0 # mm/s2
+setp CH32.0.stepdir.0.pos-scale 1000.0 # steps/mm
+setp CH32.0.stepdir.0.pos-reset 1
+net PB4 CH32.0.stepdir.0.step-pin
+net PA15 CH32.0.stepdir.0.dir-pin
+
+# encoder test setup
+setp CH32.0.encoder.0.enable 1
+setp CH32.0.encoder.0.reset 1
+setp CH32.0.encoder.0.find-Z 1
+setp CH32.0.encoder.0.pos-scale 1.0
+net PE0 CH32.0.encoder.0.A-pin
+net PE1 CH32.0.encoder.0.B-pin
+net PE2 CH32.0.encoder.0.Z-pin
+
+start
