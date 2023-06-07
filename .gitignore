@@ -1,5 +1,7 @@
 *.pyc
 *.var
+*.var.bad
+*.var.BAD
 *.var.bak
 *.pref
 

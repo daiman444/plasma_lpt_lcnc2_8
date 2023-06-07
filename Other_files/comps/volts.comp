@@ -1,0 +1,49 @@
+component volts "low pass filter";
+
+license "GPLv2 or greater";
+
+option singleton yes;
+
+pin in float velocity "Connect to encoder.x.velocity";
+pin in float periods "Number of counter periods";
+pin in float scale "Voltage scale";
+pin in float voltage_setting "Voltage setting from GUI";
+pin in float volts_tol "Volts tolerance for sensitive";
+pin in float arcok_max "Arcok max from GUI";
+pin in float arcok_min "Arcok min from GUI";
+
+pin out float volts "Calculated voltage";
+pin out bit ark_ok "Arcok for THC";
+pin out bit thcu "THC up bit";
+pin out bit thcd "THC down bit";
+
+variable float counter_cycles;
+variable float counter_volts;
+
+function _;
+
+;;
+
+#include "rtapi_math.h"
+
+FUNCTION(_) {
+	if (counter_cycles < periods){
+		counter_cycles += 1;
+		counter_volts += velocity;
+		}
+	else {
+		volts = counter_volts/periods*scale;
+		counter_cycles = 0;
+		counter_volts = 0;
+		}
+		if (volts < arcok_max && volts > arcok_min){ark_ok = 1;}
+		else {ark_ok = 0;}
+		
+		if (volts + volts_tol < voltage_setting){thcu = 1;}
+		else{thcu = 0;}
+		
+		if (volts - volts_tol > voltage_setting){thcd = 1;}
+		else{thcd = 0;}
+	
+}
+

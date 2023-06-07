@@ -73,14 +73,31 @@ class PlasmaClass:
                                         "feed_directmax": 1,
                                         "feed_directmin": -1,
                                         "feed_directincr": 1,
-                                        "volts_reqval": 125,
-                                        "volts_reqmax": 130,
-                                        "volts_reqmin": 120,
-                                        "volts_reqincr": 1,
-                                        "hall_valueval": 125,
-                                        "hall_valuemax": 130,
-                                        "hall_valuemin": 120,
-                                        "hall_valueincr": 1,
+                                        "vsetupval": 125.0,
+                                        "vsetupmax": 150,
+                                        "vsetupmin": 90,
+                                        "vsetupincr": 1,
+                                        "freq_scaleval": 0.09,
+                                        "freq_scalemax": 2,
+                                        "freq_scalemin": 0,
+                                        "freq_scaleincr": 0.01,
+                                        "arc_ok_minval": 80.0,
+                                        "arc_ok_minmax": 130,
+                                        "arc_ok_minmin": 80,
+                                        "arc_ok_minincr": 5,
+                                        "arc_ok_maxval": 170.0,
+                                        "arc_ok_maxmax": 170,
+                                        "arc_ok_maxmin": 120,
+                                        "arc_ok_maxincr": 5,
+                                        "periodsval": 1000.0,
+                                        "periodsmax": 2000,
+                                        "periodsmin": 0,
+                                        "periodsincr": 50,
+                                        "vtolval": 1,
+                                        "vtolmax": 5,
+                                        "vtolmin": 0,
+                                        "vtolincr": 1,
+
                                         },
                          IniFile.widgets: widget_defaults(select_widgets([self.builder.get_object("hal-btn-THC")],
                                                                          hal_only=True, output_only=True)),
@@ -138,11 +155,15 @@ class PlasmaClass:
         self.lbl_feed_dir = self.builder.get_object('lbl_feed_dir')
         self.lbl_feed_dir.set_label('FWD')
 
+
+
         # declaring widgets as a list.
         # push-buttons list for change values:
         self.widgets_list = ['cor_vel', 'vel_tol', 'pierce_hght',
                              'jump_hght', 'pierce_del', 'cut_hght',
                              'stop_del', 'safe_z', 'z_speed',
+                             'vsetup', 'freq_scale', 'arc_ok_min',
+                             'arc_ok_max', 'periods', 'vtol', 
                              ]
 
         # for a simplified call to dictionary values, we will declare a variable
@@ -177,6 +198,13 @@ class PlasmaClass:
                                 'set_coord_x', 'txt_set_coord_x', 'set_coord_y',
                                 'txt_set_coord_y', 'tb_plasma', 'tb_ox',
                                 ]
+        #self.volts = self.hglib_pin(self.halcomp.newpin('volts', hal.HAL_FLOAT, hal.HAL_IN))
+        #self.volts.value_changed.connect(lambda data: self.set_volts(data))
+        
+    #def set_volts(self, data):
+        #self.b_g_o('lbl_volts').set_label("%s" % data)
+        
+        
 
     def mode_change(self, stat):
         STATUS.poll()
@@ -246,8 +274,12 @@ class PlasmaClass:
         else:
             self.b_g_o('btn_' + name + '_plus').set_sensitive(True)
             self.b_g_o('btn_' + name + '_minus').set_sensitive(True)
-        self.b_g_o('lbl_' + name).set_label('%s' % round(self.defs[name + 'val'], 1))
-        self.halcomp[name] = round(self.defs[name + 'val'], 1)
+        if name == 'freq_scale':
+            self.b_g_o('lbl_' + name).set_label('%s' % self.defs[name + 'val'])
+            self.halcomp[name] = self.defs[name + 'val']
+        else:
+            self.b_g_o('lbl_' + name).set_label('%s' % round(self.defs[name + 'val'], 1))
+            self.halcomp[name] = round(self.defs[name + 'val'], 1)
 
     def pb_changes(self, w, d=None):
         if w.get_active() == True and d == 'plasma':

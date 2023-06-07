@@ -7,12 +7,7 @@
     <option name="proportionPopup" value="0.67772514" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="homming commented">
-      <change afterPath="$PROJECT_DIR$/thc_hotkeys.halshow" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HAL/custom.hal" beforeDir="false" afterPath="$PROJECT_DIR$/HAL/custom.hal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HAL/custom_postgui.hal" beforeDir="false" afterPath="$PROJECT_DIR$/HAL/custom_postgui.hal" afterDir="false" />
-    </list>
+    <list default="true" id="4b88ff23-e129-425b-bf9f-8e4e66dfc6e5" name="Changes" comment="added widgets volts for thc with freq" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -378,7 +373,42 @@
       <option name="project" value="LOCAL" />
       <updated>1684424255994</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="connected hotkeys isttead thc">
+      <created>1684427299595</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1684427299595</updated>
+    </task>
+    <task id="LOCAL-00046" summary="connected hotkeys isttead thc">
+      <created>1684427352126</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1684427352126</updated>
+    </task>
+    <task id="LOCAL-00047" summary="added widgets for thc with freq">
+      <created>1684429743571</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1684429743571</updated>
+    </task>
+    <task id="LOCAL-00048" summary="added widgets freq_scale arc_ok_min/max for thc with freq">
+      <created>1684431049157</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1684431049157</updated>
+    </task>
+    <task id="LOCAL-00049" summary="added widgets volts for thc with freq">
+      <created>1684432282220</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1684432282220</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -394,10 +424,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="the method for changing the sensitivity of widgets when &quot;all-homed&quot; is ready." />
-    <MESSAGE value="feed direction method added" />
-    <MESSAGE value="&quot;widgets value change&quot; method added" />
-    <MESSAGE value="declaring widgets as a list" />
     <MESSAGE value="declaring widgets and method for them ready" />
     <MESSAGE value="added TODO" />
     <MESSAGE value="pb_buttons: added TODO" />
@@ -419,6 +445,10 @@
     <MESSAGE value="some" />
     <MESSAGE value="added viewport" />
     <MESSAGE value="homming commented" />
-    <option name="LAST_COMMIT_MESSAGE" value="homming commented" />
+    <MESSAGE value="connected hotkeys isttead thc" />
+    <MESSAGE value="added widgets for thc with freq" />
+    <MESSAGE value="added widgets freq_scale arc_ok_min/max for thc with freq" />
+    <MESSAGE value="added widgets volts for thc with freq" />
+    <option name="LAST_COMMIT_MESSAGE" value="added widgets volts for thc with freq" />
   </component>
 </project>

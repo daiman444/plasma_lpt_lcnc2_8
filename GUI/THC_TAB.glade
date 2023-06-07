@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <interface>
-  <!-- interface-requires gladevcp 0.0 -->
   <requires lib="gtk+" version="2.24"/>
+  <!-- interface-requires gladevcp 0.0 -->
   <!-- interface-naming-policy project-wide -->
   <object class="GtkWindow" id="window1">
     <property name="can_focus">False</property>
@@ -13,7 +13,7 @@
         <property name="vscrollbar_policy">automatic</property>
         <child>
           <object class="GtkViewport" id="viewport1">
-            <property name="width_request">370</property>
+            <property name="width_request">380</property>
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -1314,20 +1314,19 @@ G92 Z0
                               <object class="GtkTable" id="table2">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
-                                <property name="n_rows">5</property>
+                                <property name="n_rows">15</property>
                                 <property name="n_columns">4</property>
                                 <child>
-                                  <object class="GtkLabel" id="label25">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
-Задается в % от максимальной скорости оси Z </property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Коррекция, %:</property>
-                                  </object>
-                                  <packing>
-                                    <property name="y_options"/>
-                                  </packing>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
+                                </child>
+                                <child>
+                                  <placeholder/>
                                 </child>
                                 <child>
                                   <object class="GtkLabel" id="lbl_cor_vel">
@@ -1380,23 +1379,6 @@ G92 Z0
                                   <packing>
                                     <property name="left_attach">1</property>
                                     <property name="right_attach">2</property>
-                                    <property name="top_attach">2</property>
-                                    <property name="bottom_attach">3</property>
-                                    <property name="y_options"/>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkLabel" id="label26">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="tooltip_text" translatable="yes">Минимальная скорость жвижения
-при которой допускается корректировка
-зазора.
-</property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Допуск скорости, %:</property>
-                                  </object>
-                                  <packing>
                                     <property name="top_attach">2</property>
                                     <property name="bottom_attach">3</property>
                                     <property name="y_options"/>
@@ -1459,22 +1441,7 @@ G92 Z0
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkLabel" id="label9">
-                                    <property name="visible">True</property>
-                                    <property name="can_focus">False</property>
-                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
-Задается в % от максимальной скорости оси Z </property>
-                                    <property name="xalign">0</property>
-                                    <property name="label" translatable="yes">Коррекция, %:</property>
-                                  </object>
-                                  <packing>
-                                    <property name="top_attach">4</property>
-                                    <property name="bottom_attach">5</property>
-                                    <property name="y_options"/>
-                                  </packing>
-                                </child>
-                                <child>
-                                  <object class="GtkLabel" id="lbl_cor_vel1">
+                                  <object class="GtkLabel" id="lbl_freq_scale">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
                                     <property name="label" translatable="yes">val</property>
@@ -1488,7 +1455,7 @@ G92 Z0
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="btn_cor_vel_plus3">
+                                  <object class="GtkButton" id="btn_freq_scale_plus">
                                     <property name="label" translatable="yes">+</property>
                                     <property name="width_request">25</property>
                                     <property name="height_request">25</property>
@@ -1504,7 +1471,7 @@ G92 Z0
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="btn_cor_vel_minus1">
+                                  <object class="GtkButton" id="btn_freq_scale_minus">
                                     <property name="label" translatable="yes">-</property>
                                     <property name="width_request">25</property>
                                     <property name="height_request">25</property>
@@ -1517,6 +1484,354 @@ G92 Z0
                                     <property name="right_attach">4</property>
                                     <property name="top_attach">4</property>
                                     <property name="bottom_attach">5</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHSeparator" id="hseparator9">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                  </object>
+                                  <packing>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">5</property>
+                                    <property name="bottom_attach">6</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHSeparator" id="hseparator10">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                  </object>
+                                  <packing>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">7</property>
+                                    <property name="bottom_attach">8</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHSeparator" id="hseparator13">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                  </object>
+                                  <packing>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">9</property>
+                                    <property name="bottom_attach">10</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="lbl_arc_ok_min">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="label" translatable="yes">val</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="right_attach">2</property>
+                                    <property name="top_attach">6</property>
+                                    <property name="bottom_attach">7</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="lbl_arc_ok_max">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="label" translatable="yes">val</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="right_attach">2</property>
+                                    <property name="top_attach">8</property>
+                                    <property name="bottom_attach">9</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_arc_ok_min_plus">
+                                    <property name="label" translatable="yes">+</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="right_attach">3</property>
+                                    <property name="top_attach">6</property>
+                                    <property name="bottom_attach">7</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_arc_ok_max_plus">
+                                    <property name="label" translatable="yes">+</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="right_attach">3</property>
+                                    <property name="top_attach">8</property>
+                                    <property name="bottom_attach">9</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_arc_ok_min_minus">
+                                    <property name="label" translatable="yes">-</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">3</property>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">6</property>
+                                    <property name="bottom_attach">7</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_arc_ok_max_minus">
+                                    <property name="label" translatable="yes">-</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">3</property>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">8</property>
+                                    <property name="bottom_attach">9</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label25">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Коррекция, %:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label26">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Минимальная скорость жвижения
+при которой допускается корректировка
+зазора.
+</property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Допуск скорости, %:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">2</property>
+                                    <property name="bottom_attach">3</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label9">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Масштаб:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">4</property>
+                                    <property name="bottom_attach">5</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label14">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Arc_ok max:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">8</property>
+                                    <property name="bottom_attach">9</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label41">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Arc_ok min:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">6</property>
+                                    <property name="bottom_attach">7</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHSeparator" id="hseparator15">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                  </object>
+                                  <packing>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">11</property>
+                                    <property name="bottom_attach">12</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label42">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Periods:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">10</property>
+                                    <property name="bottom_attach">11</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="lbl_periods">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="label" translatable="yes">val</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="right_attach">2</property>
+                                    <property name="top_attach">10</property>
+                                    <property name="bottom_attach">11</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_periods_plus">
+                                    <property name="label" translatable="yes">+</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="right_attach">3</property>
+                                    <property name="top_attach">10</property>
+                                    <property name="bottom_attach">11</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_periods_minus">
+                                    <property name="label" translatable="yes">-</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">3</property>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">10</property>
+                                    <property name="bottom_attach">11</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkHSeparator" id="hseparator16">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                  </object>
+                                  <packing>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">13</property>
+                                    <property name="bottom_attach">14</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="label16">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="xalign">0</property>
+                                    <property name="label" translatable="yes">Volts tol.:</property>
+                                  </object>
+                                  <packing>
+                                    <property name="top_attach">12</property>
+                                    <property name="bottom_attach">13</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkLabel" id="lbl_vtol">
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">False</property>
+                                    <property name="tooltip_text" translatable="yes">Скорость коррекции зазора.
+Задается в % от максимальной скорости оси Z </property>
+                                    <property name="label" translatable="yes">val</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">1</property>
+                                    <property name="right_attach">2</property>
+                                    <property name="top_attach">12</property>
+                                    <property name="bottom_attach">13</property>
+                                    <property name="y_options"/>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_vtol_plus">
+                                    <property name="label" translatable="yes">+</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">2</property>
+                                    <property name="right_attach">3</property>
+                                    <property name="top_attach">12</property>
+                                    <property name="bottom_attach">13</property>
+                                  </packing>
+                                </child>
+                                <child>
+                                  <object class="GtkButton" id="btn_vtol_minus">
+                                    <property name="label" translatable="yes">-</property>
+                                    <property name="width_request">25</property>
+                                    <property name="height_request">25</property>
+                                    <property name="visible">True</property>
+                                    <property name="can_focus">True</property>
+                                    <property name="receives_default">True</property>
+                                  </object>
+                                  <packing>
+                                    <property name="left_attach">3</property>
+                                    <property name="right_attach">4</property>
+                                    <property name="top_attach">12</property>
+                                    <property name="bottom_attach">13</property>
                                   </packing>
                                 </child>
                               </object>
@@ -1536,7 +1851,6 @@ G92 Z0
                   <packing>
                     <property name="top_attach">7</property>
                     <property name="bottom_attach">8</property>
-                    <property name="y_options"/>
                   </packing>
                 </child>
                 <child>
@@ -1573,7 +1887,7 @@ G92 Z0
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkLabel" id="lbl_print4">
+                              <object class="GtkLabel" id="lbl_vsetup">
                                 <property name="height_request">20</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
@@ -1594,7 +1908,7 @@ G92 Z0
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
                                 <child>
-                                  <object class="GtkButton" id="btn_cor_vel_plus1">
+                                  <object class="GtkButton" id="btn_vsetup_plus">
                                     <property name="label" translatable="yes">+</property>
                                     <property name="width_request">25</property>
                                     <property name="height_request">30</property>
@@ -1609,7 +1923,7 @@ G92 Z0
                                   </packing>
                                 </child>
                                 <child>
-                                  <object class="GtkButton" id="btn_cor_vel_plus2">
+                                  <object class="GtkButton" id="btn_vsetup_minus">
                                     <property name="label" translatable="yes">-</property>
                                     <property name="width_request">25</property>
                                     <property name="height_request">30</property>
@@ -1628,6 +1942,19 @@ G92 Z0
                                 <property name="expand">True</property>
                                 <property name="fill">True</property>
                                 <property name="position">2</property>
+                              </packing>
+                            </child>
+                            <child>
+                              <object class="HAL_Label" id="hal_label1">
+                                <property name="visible">True</property>
+                                <property name="can_focus">False</property>
+                                <property name="label" translatable="yes">label</property>
+                                <property name="label_pin_type">1</property>
+                              </object>
+                              <packing>
+                                <property name="expand">True</property>
+                                <property name="fill">True</property>
+                                <property name="position">3</property>
                               </packing>
                             </child>
                           </object>

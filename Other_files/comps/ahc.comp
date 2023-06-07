@@ -92,10 +92,10 @@ if(!plasma && oxygen){
 		}
 		if(torch_on){ // allow correction
 			if(oxtorch_down){
-				offset -= correction_vel/10000;
+				offset -= 0.0075;
 			}
 			if(oxtorch_up){
-				offset += correction_vel/10000;
+				offset += 0.0075;
 			}    
 		last_z_in = 0;
 		}
