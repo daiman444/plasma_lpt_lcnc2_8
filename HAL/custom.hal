@@ -4,29 +4,11 @@
 loadrt debounce cfg=1,1,2
 loadrt ahc
 loadrt thc2
-loadrt encoder num_chan=1
-loadrt volts
 
 addf debounce.0 servo-thread
 addf debounce.1 servo-thread
 addf ahc servo-thread
 addf thc2 servo-thread
-addf encoder.update-counters base-thread
-addf encoder.capture-position servo-thread
-addf volts servo-thread
-
-
-
-
-
-setp encoder.0.position-scale 1
-setp encoder.0.counter-mode 1
-net freq					parport.0.pin-13-in-not			encoder.0.phase-A
-
-net vel 					encoder.0.velocity 				volts.velocity
-net arcok					volts.ark-ok					ahc.arc-ok
-net thcu					volts.thcu
-net thcd					volts.thcd
 
 # debounce probe
 net probe-in                debounce.0.0.in                 parport.0.pin-15-in-not
@@ -36,9 +18,9 @@ setp                        debounce.0.delay 5
 #пины режима резки
 net plasma                  ahc.plasma                      motion.digital-out-01
 net oxygen                  ahc.oxygen                      motion.digital-out-02
-net thcu                    ahc.torch-up
-net thcd                    ahc.torch-down
-net arcok			        ahc.arc-ok						motion.digital-in-00
+#net thcu                    ahc.torch-up
+#net thcd                    ahc.torch-down
+#net arcok			        ahc.arc-ok						motion.digital-in-00
 net current-vel             ahc.current-vel                 motion.current-vel
 net requested-vel           ahc.requested-vel               motion.requested-vel
 net spindle-enable          ahc.torch-on

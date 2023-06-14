@@ -38,7 +38,10 @@ setp parport.0.pin-06-out-reset 1
 net zdir              => parport.0.pin-09-out
 net xenable           => parport.0.pin-14-out
 
-net all-home         <= parport.0.pin-10-in-not
+net home-x           <= parport.0.pin-10-in-not
+net home-y1          <= parport.0.pin-11-in-not
+net home-y2          <= parport.0.pin-12-in-not
+#net home-z           <= parport.0.pin-13-in-not
 
 
 setp stepgen.0.position-scale [JOINT_0]SCALE
@@ -52,7 +55,7 @@ net xpos-fb stepgen.0.position-fb => joint.0.motor-pos-fb
 net xstep <= stepgen.0.step
 net xdir <= stepgen.0.dir
 net xenable joint.0.amp-enable-out => stepgen.0.enable
-net all-home => joint.0.home-sw-in
+net home-x => joint.0.home-sw-in
 
 setp stepgen.1.position-scale [JOINT_1]SCALE
 setp stepgen.1.steplen 1
@@ -65,7 +68,7 @@ net ypos-fb stepgen.1.position-fb => joint.1.motor-pos-fb
 net ystep <= stepgen.1.step
 net ydir <= stepgen.1.dir
 net yenable joint.1.amp-enable-out => stepgen.1.enable
-net all-home => joint.1.home-sw-in
+net home-y1 => joint.1.home-sw-in
 
 setp stepgen.2.position-scale [JOINT_1]SCALE
 setp stepgen.2.steplen 1
@@ -78,7 +81,7 @@ net y2pos-fb stepgen.2.position-fb => joint.2.motor-pos-fb
 net y2step <= stepgen.2.step
 net y2dir <= stepgen.2.dir
 net y2enable joint.2.amp-enable-out => stepgen.2.enable
-net all-home => joint.2.home-sw-in
+net home-y2 => joint.2.home-sw-in
 
 setp stepgen.3.position-scale [JOINT_3]SCALE
 setp stepgen.3.steplen 1
@@ -91,7 +94,7 @@ net zpos-fb stepgen.3.position-fb => joint.3.motor-pos-fb
 net zstep <= stepgen.3.step
 net zdir <= stepgen.3.dir
 net zenable joint.3.amp-enable-out => stepgen.3.enable
-net all-home => joint.3.home-sw-in
+net home-x => joint.3.home-sw-in
 
 net estop-out <= iocontrol.0.user-enable-out
 net estop-out => iocontrol.0.emc-enable-in

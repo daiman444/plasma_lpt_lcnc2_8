@@ -24,6 +24,7 @@ P.S: возможны какие то доработки и исправлени
 "s" - motion.adaptive-feed +1;\
 "x" - motion.adaptive-feed -1;
 
+TODO:\
 "d" - volts +1;\
 "c" - volts -1;
 
