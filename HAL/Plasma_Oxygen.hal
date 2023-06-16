@@ -44,7 +44,7 @@ net xenable           => parport.0.pin-14-out
 net home-x           <= parport.0.pin-10-in-not
 net home-y1          <= parport.0.pin-11-in-not
 net home-y2          <= parport.0.pin-12-in-not
-#net home-z           <= parport.0.pin-13-in-not
+net home-z           <= parport.0.pin-13-in-not
 
 
 setp stepgen.0.position-scale [JOINT_0]SCALE
@@ -97,7 +97,7 @@ net zpos-fb stepgen.3.position-fb => joint.3.motor-pos-fb
 net zstep <= stepgen.3.step
 net zdir <= stepgen.3.dir
 net zenable joint.3.amp-enable-out => stepgen.3.enable
-net home-x => joint.3.home-sw-in
+net home-z => joint.3.home-sw-in
 
 net estop-out <= iocontrol.0.user-enable-out
 net estop-out => iocontrol.0.emc-enable-in
