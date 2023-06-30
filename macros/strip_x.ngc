@@ -24,10 +24,10 @@ o100 while [#<variable1> LT #<numb_of_lanes>]
 	G91
 	G04 P0.1
 	F[#<cutspeed>]
-	M64 P00
+	M64 P01
 	G64P00
 	G01X-[#<lenght>]
-	M65 P00
+	M65 P01
 	M25
 	G91
 	G00Y[#<width>+#<cut_width>]

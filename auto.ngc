@@ -1,0 +1,15 @@
+(ngcgui: FEATURE 230623:15.56.51)
+(ngcgui: files: < ./macros/strip_x.ngc >)
+(ngcgui: feature line added) #<_feature:> = 0
+(ngcgui: remaining_features line added) #<_remaining_features:> = 0
+(ngcgui: call subroutine file: ./macros/strip_x.ngc)
+(ngcgui: positional parameters:)
+(         #1 =    variable1 =            0)
+(         #2 = numb_of_lanes =           20)
+(         #3 =        width =           60)
+(         #4 =    cut_width =            3)
+(         #5 =    variable2 =          0.5)
+(         #6 =       lenght =         1480)
+(         #7 =     cutspeed =         1200)
+o<strip_x> call [0][20][60][3][0.5][1480][1200]
+(ngcgui: m2 line added) m2 (g54 activated)
