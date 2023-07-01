@@ -10,6 +10,11 @@ setp parport.0.reset-time 5000
 loadrt stepgen step_type=0,0,0,0
 
 #start ch32
+loadrt threads name1=srv period1=1000000000
+loadrt CH32 IP="10.10.10.10" PORT="1000" SIMULATION=0
+
+addf CH32.read srv
+addf CH32.write srv
 
 addf parport.0.read base-thread
 addf parport.1.read base-thread

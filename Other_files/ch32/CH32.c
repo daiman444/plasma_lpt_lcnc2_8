@@ -725,13 +725,13 @@ static int32_t comp_init()
             for (pin = GPIO_PINS_CNT; pin--;)
             {
                 r += hal_pin_bit_newf(HAL_OUT, &gph[d][port][pin].in, comp_id, 
-                                      "%s.%u.gpio.P%c%u.in", comp_name, d, 'A'+port, pin);
+                                      "%s.%u.gpio.P%c%u.state", comp_name, d, 'A'+port, pin);
                 r += hal_pin_bit_newf(HAL_OUT, &gph[d][port][pin].in_not, comp_id, 
-                                      "%s.%u.gpio.P%c%u.in-not", comp_name, d, 'A'+port, pin);
+                                      "%s.%u.gpio.P%c%u.state-inverted", comp_name, d, 'A'+port, pin);
                 r += hal_pin_bit_newf(HAL_IN, &gph[d][port][pin].out, comp_id, 
-                                      "%s.%u.gpio.P%c%u.out", comp_name, d, 'A'+port, pin);
+                                      "%s.%u.gpio.P%c%u.control", comp_name, d, 'A'+port, pin);
                 r += hal_pin_bit_newf(HAL_IN, &gph[d][port][pin].out_not, comp_id, 
-                                      "%s.%u.gpio.P%c%u.out-not", comp_name, d, 'A'+port, pin);
+                                      "%s.%u.gpio.P%c%u.control-inverted", comp_name, d, 'A'+port, pin);
                 r += hal_pin_s32_newf(HAL_IN, &gph[d][port][pin].pull, comp_id, 
                                       "%s.%u.gpio.P%c%u.pull", comp_name, d, 'A'+port, pin);
                 r += hal_pin_s32_newf(HAL_IN, &gph[d][port][pin].type, comp_id, 
