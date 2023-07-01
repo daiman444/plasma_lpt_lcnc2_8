@@ -31,7 +31,7 @@ net removing-offset         ahc.removing-offset
 net vel-tol                 ahc.velocity-tol
 net cor-vel                 ahc.correction-vel
 
-net spindle-enable          spindle.0.on                    parport.0.pin-17-out    ahc.oxtorch-on
+#net spindle-enable          spindle.0.on                    parport.0.pin-17-out    ahc.oxtorch-on
 #net deb-arc-ok-out          motion.digital-in-00
 
 unlinkp                     joint.3.motor-pos-cmd

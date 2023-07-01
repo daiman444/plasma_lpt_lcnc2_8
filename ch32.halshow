@@ -1,0 +1,21 @@
+# halshow watchlist created Sat Jul 01 12:04:48 +06 2023
+
+pin+CH32.0.connected
+pin+CH32.0.gpio.PB4.control
+pin+CH32.0.gpio.PB4.control-inverted
+pin+CH32.0.gpio.PB4.pull
+pin+CH32.0.gpio.PB4.state
+pin+CH32.0.gpio.PB4.state-inverted
+pin+CH32.0.gpio.PB4.type
+pin+CH32.0.gpio.PE0.control
+pin+CH32.0.gpio.PE0.control-inverted
+pin+CH32.0.gpio.PE0.pull
+pin+CH32.0.gpio.PE0.state
+pin+CH32.0.gpio.PE0.state-inverted
+pin+CH32.0.gpio.PE0.type
+pin+CH32.0.gpio.PE4.control
+pin+CH32.0.gpio.PE4.control-inverted
+pin+CH32.0.gpio.PE4.pull
+pin+CH32.0.gpio.PE4.state
+pin+CH32.0.gpio.PE4.state-inverted
+pin+CH32.0.gpio.PE4.type
