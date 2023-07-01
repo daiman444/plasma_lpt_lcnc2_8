@@ -9,12 +9,14 @@ loadrt hal_parport cfg="0x378 out ee00 out"
 setp parport.0.reset-time 5000
 loadrt stepgen step_type=0,0,0,0
 
-#start ch32
+##################################################################
+#####start ch32
 loadrt threads name1=srv period1=1000000000
 loadrt CH32 IP="10.10.10.10" PORT="1000" SIMULATION=0
 
 addf CH32.read srv
 addf CH32.write srv
+##################################################################
 
 addf parport.0.read base-thread
 addf parport.1.read base-thread
@@ -29,6 +31,16 @@ addf motion-command-handler servo-thread
 addf motion-controller servo-thread
 addf stepgen.update-freq servo-thread
 net spindle-at-speed    => spindle.0.at-speed
+
+##################################################################
+##### gpio test setup
+setp CH32.0.gpio.PB4.type 1 # output
+setp CH32.0.gpio.PB4.pull 1 # pull-up
+setp CH32.0.gpio.PB4.control 1 # state = ON
+setp CH32.0.gpio.PA15.type 1 # output
+setp CH32.0.gpio.PA15.pull -1 # pull-down
+setp CH32.0.gpio.PA15.control 0 # state = OFF
+##################################################################
 
 
 net xstep             => parport.0.pin-02-out
