@@ -9,6 +9,8 @@ loadrt hal_parport cfg="0x378 out ee00 out"
 setp parport.0.reset-time 5000
 loadrt stepgen step_type=0,0,0,0
 
+#start ch32
+
 addf parport.0.read base-thread
 addf parport.1.read base-thread
 addf stepgen.make-pulses base-thread
