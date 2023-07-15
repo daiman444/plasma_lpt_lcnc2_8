@@ -26,15 +26,15 @@ net spindle-at-speed    => spindle.0.at-speed
 
 net xstep             => parport.0.pin-02-out
 setp parport.0.pin-02-out-reset 1
-#setp parport.0.pin-03-out-invert 1
+setp parport.0.pin-03-out-invert 1
 net xdir              => parport.0.pin-03-out
 net ystep             => parport.0.pin-04-out
 setp parport.0.pin-04-out-reset 1
-#setp parport.0.pin-05-out-invert 1
+setp parport.0.pin-05-out-invert 1
 net ydir              => parport.0.pin-05-out
 net y2step            => parport.0.pin-06-out
 setp parport.0.pin-06-out-reset 1
-#setp parport.0.pin-05-out-invert 1
+setp parport.0.pin-07-out-invert 1
 net y2dir             => parport.0.pin-07-out
 net zstep             => parport.0.pin-08-out
 setp parport.0.pin-06-out-reset 1
